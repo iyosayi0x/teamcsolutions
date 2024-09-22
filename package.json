@@ -35,7 +35,6 @@
 		"vitest": "^2.0.0"
 	},
 	"type": "module",
-	"dependencies": {
-		"sass": "^1.79.3"
-	}
+	"dependencies": {},
+	"license":"UNLICENSED"
 }

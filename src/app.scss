@@ -1,16 +1,48 @@
-@import "./lib";
+@import './css_lib';
 
-*, *::before, *::after { 
-	margin:0;
+*,
+*::before,
+*::after {
+	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
-
-@font-face {
-	font-family: 'Sora';
-	src: url('./fonts/Sora-VariableFont_wght.ttf');
-}
-
-body { 
 	font-family: $primary-font;
+}
+
+
+body {
+	font-family: $primary-font;
+}
+
+.btn {
+	text-decoration: none;
+	color: $primary-color;
+	padding: 1rem 2.2rem;
+	border-radius: 0.7rem;
+	border: none;
+}
+
+.secondary-btn {
+	@extend .btn;
+	background: $secondary-color;
+	font-weight: 500;
+}
+
+.white-btn { 
+	@extend .btn;
+	background: white;
+	font-weight: 500;
+	color: black;
+}
+
+.dot { 
+	width: 5px;
+	height: 5px;
+	background: black;
+	display: inline-block;
+	border-radius: 50%;
+}
+
+h1 { 
+	font-size: $text-h1;
 }
