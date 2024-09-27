@@ -16,6 +16,10 @@ body {
 	margin: 0 auto;
 }
 
+html { 
+	scroll-behavior: smooth;
+}
+
 .btn {
 	text-decoration: none;
 	color: $primary-color;

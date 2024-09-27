@@ -4,24 +4,22 @@
 	<title>About Team Consulting solutions</title>
 </svelte:head>
 
-<script>
+<script lang="ts">
+    import {  slide } from 'svelte/transition';
     import officeImage from "$lib/assets/office.jpg";
     import office2Image from "$lib/assets/office-2.jpg"
+    import Faq from "./Faq.svelte"
+    import solutions from "$lib/data/about-solutions.json"
+    import faqs from "$lib/data/faq.json"
 
-    const solutions = [
-        {
-            title:"Cloud Solutions",
-            description:"We provide scalable cloud services to boost efficiency and streamline your business operation"
-        },
-        {
-            title:"Cyber Security",
-            description:"Comprehensive cybersecurity solutions to protect your data and systems from evolving threats and risks."
-        },
-        {
-            title:"AI & Machine Learning",
-            description:"Advanced AI and machine learning solutions to turn data into actionable insights and drive innovation."
-        },
-    ]
+    let activeIndex:number|null = 1;
+    const toggleOrChangeActiveIndex=(index:number)=>{
+        if(activeIndex === index){
+            activeIndex = null
+        }else { 
+            activeIndex = index
+        }
+    }
 </script>
 
 
@@ -31,35 +29,46 @@
     <a href="mailto:info@teamcsolutions.com" class="primary-btn">Get A Consultation</a>
 </section>
 
-<section class="about__services">
-    <section>
-        <div class="about__services__title">Empowering Businesses with Strategic Road Maps</div>
+<section class="about__section">
+    <section style="flex:.5">
+        <div class="about__title">Empowering Businesses with Strategic Road Maps</div>
         <!-- --- services ---  -->
         <div class="about__services__list">
-            {#each solutions as {  title, description }}
+            {#each solutions as {  title, description, index }}
                 <article class="about__services__service">
-                    <div class="about__services__service-title">{title}</div>
-                    <div class="about__services__service-description">{description}</div>
+                    <div class="about__services__service-title"
+                        tabindex="0"
+                        role="button"
+                        on:click={()=>toggleOrChangeActiveIndex(index)}
+                        on:keypress={()=>toggleOrChangeActiveIndex(index)}
+                        data-active={activeIndex === index}
+                    >
+                        {title}
+                    </div>
+
+                    {#if activeIndex === index}
+                        <div class="about__services__service-description"  transition:slide={{ delay: 250, duration: 300, axis:"y" }}>{description}</div>
+                    {/if}
                 </article>
             {/each}
         </div>
     </section>
 
-    <section class="about__services__image-container">
+    <section class="about__services__image-container" style="flex:.5">
         <img src={officeImage} alt="office place"/>
     </section>
 </section>
 
 
-<section class="about__why">
-    <div class="about__why__title">Transforming Your Business with Our Cloud and Cybersecurity Solutions.</div>
+<section class="about__section" data-flex="no">
+    <div class="about__title">Transforming Your Business with Our Cloud and Cybersecurity Solutions.</div>
 
-    <div class="about__why__main"> 
-        <div class="about__why__image-container">
+    <div class="about__section" data-padding="no"> 
+        <section class="about__why__image-container">
             <img src={office2Image} alt="office place vertical"/>
-        </div>
+        </section>
 
-        <article class="about__why__article">
+        <section class="about__why__article">
             <div>
                 <div class="about__why__article__title">Your Growth, Our Passion.</div>
                 <div class="about__why__article__description">
@@ -80,13 +89,18 @@
                     Built on a foundation of trust, our partnership with <b>Team Consulting Solutions</b> will help you achieve your goals. Count on us to deliver.
                 </div>
             </div>
-
-
             <div>
                 <a href="/services" class="primary-btn">View All Our Services</a>
             </div>
-        </article>
+        </section>
     </div>
+</section>
+
+<section class="about__section about__faq" data-flex="no" id="faq">
+    <div class="about__title">Frequently Asked Questions</div>
+    {#each faqs as faq}
+        <Faq faq={faq}/>
+    {/each}
 </section>
 
 <section class="about__contact" id="contact">
@@ -114,19 +128,26 @@
         }
     }
 
-    .about__services { 
-        margin-top: 7rem;
+    .about__title { 
+        font-size: xx-large;
+        max-width: 50rem;
+        font-weight: 500;
+        margin-bottom: 3rem;
+    }
+
+    .about__section { 
+        margin-top: 8rem;
         padding: 0 $page-block-padding;
         @include flexbox(space-between, center);
-        &>section {
-            flex: .5;
-        }
     }
-    .about__services__title { 
-        font-size: $text-h1;
-        max-width: 30rem;
-        line-height: 3.4rem;
-        font-weight: 500;
+
+    .about__section[data-flex=no]{
+        display: block;
+    }
+
+    .about__section[data-padding=no]{
+        padding: 0 0;
+        margin-top: 0;
     }
 
     .about__services__list { 
@@ -138,8 +159,15 @@
 
     .about__services__service { 
         padding-left: 3rem;
-        &-title { 
-            font-size: $text-h3;
+        &-description { 
+            color: $grey-color-1;
+            margin-top: .8rem;
+            line-height: 1.7rem;
+        }
+    }
+
+    .about__services__service-title { 
+        font-size: $text-h3;
             font-weight: 400;
             cursor: pointer;
             transition: .4s;
@@ -151,12 +179,12 @@
                 color: $primary-color;
                 padding-right: 1rem;
             }
-        }
-        &-description { 
-            color: $grey-color-1;
-            margin-top: .5rem;
-            display: none;
-        }
+
+            &[data-active=true]{
+                &:before{
+                    content:"-"
+                }
+            }
     }
 
     .about__services__image-container { 
@@ -180,22 +208,12 @@
         color: white;
     }
 
-    .about__why { 
-        padding: 2rem $page-block-padding;
-    }
 
     .about__why__main { 
         @include flexbox(space-between, flex-start);
         margin-top: 2rem;
     }
 
-    .about__why__title { 
-        font-size: xx-large;
-        max-width: 50rem;
-        font-weight: 500;
-        margin-top: 5rem;
-        margin-bottom: 3rem;
-    }
 
     .about__why__image-container { 
         height: 50rem;
@@ -225,5 +243,9 @@
 
     .about__why__article__description { 
         line-height: 2rem;
+    }
+
+    .about__faq { 
+        padding: 2rem $page-block-padding;
     }
 </style>
