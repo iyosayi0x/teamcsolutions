@@ -31,7 +31,7 @@
 </footer>
 
 <style lang="scss">
-    @import "../css_lib";
+    @use "../css_lib" as *;
     .footer { 
 		padding: 2.5rem 7.5rem;
     }

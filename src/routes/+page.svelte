@@ -17,7 +17,7 @@
 </section>
 
 <style lang="scss">
-	@import "../css_lib";
+	@use "../css_lib" as *;
 	.home__banner-container {
 		height: 45rem;
 		width: 100%;

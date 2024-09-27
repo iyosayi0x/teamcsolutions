@@ -28,7 +28,7 @@
 </header>
 
 <style lang="scss">
-	@import '../css_lib';
+	@use '../css_lib' as *;
 
 	.header {
 		@include flexbox(space-between, center);
