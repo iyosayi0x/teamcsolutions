@@ -1,66 +1,129 @@
+<script>
+    import logo from "$lib/assets/logo.png";
+</script>
 <footer class="footer"> 
     <section class="footer__top">
         <section>
+            <div class="footer__logo">
+			    <img alt="logo" src={logo} width="40" />
+                <div class="footer__logo__name">Team Consulting Solutions</div>
+            </div>
+
             <div>
-                <p class="footer__cta">Elevate Your Business with Cutting-Edge Cloud, Cybersecurity, and AI Solutions.</p>
+                <p class="footer__cta">Elevate Your Business with Cutting-Edge <span class="footer__cta-services">Cloud, Cybersecurity, and AI</span> Solutions.</p>
             </div>
         </section>
     
         <section>
-            <div class="footer__section-title">Services</div>
+            <div class="footer__section__title">QUICK LINKS</div>
+            <ul class="footer__section__links">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/services">Services</a>
+                </li>
+
+                <li>
+                    <a href="/about">About Us</a>
+                </li>
+            </ul>
         </section>
     
         <section>
-            <div class="footer__section-title">Company</div>
+            <div class="footer__section__title">SERVICES</div>
+            <ul class="footer__section__links">
+                <li>
+                    <a href="/services/cyber-security">Cybersecurity</a>
+                </li>
+                <li>
+                    <a href="/services/cloud">Cloud Solutions</a>
+                </li>
+
+                <li>
+                    <a href="/services/machine-learning">AI And Machine Learning</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="footer__section__title">COMPANY</div>
+            <ul class="footer__section__links">
+                <li>
+                    <a href="/why">Why Us</a>
+                </li>
+                <li>
+                    <a href="/about#contact">Contact Us</a>
+                </li>
+            </ul>
         </section>
     </section>
 
     <section class="footer__bottom">
-        <div class="footer__copy"> 
-            &copy; 2024<span class="dot"/> Team Consulting Solutions
-        </div>
-
-        <div>
-            <a href="tel:#">Call Us +1346-399-4530</a>
-        </div>
-
-        <div>
-            <a href="tel:#">Info@teamcsolutions.com</a>
-        </div>
+        <div>2024 <div class="dot"/> &copy; Team Consulting Solutions </div>
     </section>
 </footer>
 
 <style lang="scss">
     @use "../css_lib" as *;
-    .footer { 
-		padding: 2.5rem 7.5rem;
-    }
 
+    .footer__logo { 
+        @include flexbox(flex-start, center);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    .footer__logo__name { 
+        color: $grey-color-1;
+        font-weight: 500;
+    }
     .footer__top { 
-        padding: 0 7.5rem;
+		padding: 2.5rem 7.5rem;
         margin-bottom: 2rem;
         @include flexbox(space-between, flex-start);
     }
 
-    .footer__section-title { 
-        font-weight: 600;
-        color: black;
-    }
 
     .footer__cta { 
-        font-size: $text-h3;
-        max-width: 20rem;
+        max-width: 40rem;
         font-weight: 500;
-        line-height: 2.5rem;
+        line-height: 2.1rem;
+        color: $grey-color-1;
     }
+
+    .footer__cta-services { 
+        font-size: $text-h3;
+        font-weight: 500;
+        color:black;
+    }
+
+    .footer__section__title { 
+        color: black;
+        font-size: $text-h6;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .footer__section__links { 
+        list-style: none;
+        li:not(:last-child){
+            margin-bottom: 1rem;
+        }
+        li a { 
+            text-decoration: none;
+            color: $grey-color-1;
+            font-size: $text-small;
+        }
+    }
+
 
     .footer__bottom { 
-        @include flexbox(space-between, center);
-        margin-top: 2rem;
+        border-top: 1px solid $grey-color-1;
+		padding: 1.5rem 7.5rem;
+        div { 
+            @include flexbox(flex-start, center);
+            gap:.4rem;
+            color: $grey-color-1;
+        }
     }
 
-    .footer__copy { 
-        @include flexbox(flex-start, center);
-        gap: .2rem;
-    }
 </style>
