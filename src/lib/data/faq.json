@@ -1,38 +1,38 @@
 [
-    {
-      "question": "What types of AI solutions do you offer?",
-      "answer": "We offer custom AI solutions including data analytics, machine learning, NLP, and automation to optimize your business."
-    },
-    {
-      "question": "What cybersecurity services do you provide?",
-      "answer": "We provide risk assessment, network security, endpoint protection, penetration testing, and incident response."
-    },
-    {
-      "question": "What cloud solutions do you offer?",
-      "answer": "We offer cloud migration, infrastructure setup, security, and ongoing cloud management for businesses of any size."
-    },
-    {
-      "question": "How does migrating to the cloud benefit my business?",
-      "answer": "Cloud migration reduces IT costs, improves scalability, enhances security, and offers better collaboration and disaster recovery."
-    },
-    {
-      "question": "Are your solutions scalable for growing businesses?",
-      "answer": "Yes, all our AI, cybersecurity, and cloud solutions are scalable and adaptable to businesses of all sizes."
-    },
-    {
-      "question": "How do you handle data privacy and compliance?",
-      "answer": "We ensure data privacy with compliance to global standards like GDPR, HIPAA, and ISO for your business."
-    },
-    {
-      "question": "What industries do you serve?",
-      "answer": "We serve industries including finance, healthcare, retail, education, and technology, offering tailored solutions."
-    },
-    {
-      "question": "Do you provide ongoing support and maintenance?",
-      "answer": "Yes, we offer ongoing support and maintenance for AI, cybersecurity, and cloud solutions."
-    },
-    {
-      "question": "Can your solutions integrate with our existing IT infrastructure?",
-      "answer": "Yes, our solutions integrate seamlessly with your existing systems for smooth transitions and minimal disruptions."
-    }
-  ]
+	{
+		"question": "What types of AI solutions do you offer?",
+		"answer": "We offer custom AI solutions including data analytics, machine learning, NLP, and automation to optimize your business."
+	},
+	{
+		"question": "What cybersecurity services do you provide?",
+		"answer": "We provide risk assessment, network security, endpoint protection, penetration testing, and incident response."
+	},
+	{
+		"question": "What cloud solutions do you offer?",
+		"answer": "We offer cloud migration, infrastructure setup, security, and ongoing cloud management for businesses of any size."
+	},
+	{
+		"question": "How does migrating to the cloud benefit my business?",
+		"answer": "Cloud migration reduces IT costs, improves scalability, enhances security, and offers better collaboration and disaster recovery."
+	},
+	{
+		"question": "Are your solutions scalable for growing businesses?",
+		"answer": "Yes, all our AI, cybersecurity, and cloud solutions are scalable and adaptable to businesses of all sizes."
+	},
+	{
+		"question": "How do you handle data privacy and compliance?",
+		"answer": "We ensure data privacy with compliance to global standards like GDPR, HIPAA, and ISO for your business."
+	},
+	{
+		"question": "What industries do you serve?",
+		"answer": "We serve industries including finance, healthcare, retail, education, and technology, offering tailored solutions."
+	},
+	{
+		"question": "Do you provide ongoing support and maintenance?",
+		"answer": "Yes, we offer ongoing support and maintenance for AI, cybersecurity, and cloud solutions."
+	},
+	{
+		"question": "Can your solutions integrate with our existing IT infrastructure?",
+		"answer": "Yes, our solutions integrate seamlessly with your existing systems for smooth transitions and minimal disruptions."
+	}
+]

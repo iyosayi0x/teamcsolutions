@@ -1,6 +1,6 @@
-declare interface IServiceConfig { 
-    name:string;
-    title:string;
-    description:string;
-    slug:string;
+declare interface IServiceConfig {
+	name: string;
+	description: string;
+	link: string;
+	image?: string;
 }

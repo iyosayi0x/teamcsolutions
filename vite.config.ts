@@ -6,10 +6,10 @@ export default defineConfig({
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
-	css:{
-		preprocessorOptions:{
-			scss:{
-				api:"modern-compiler"
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern-compiler'
 			}
 		}
 	}

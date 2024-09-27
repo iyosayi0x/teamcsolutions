@@ -1,6 +1,6 @@
 <script>
 	import logo from '$lib/assets/logo.png';
-	import {page} from '$app/stores'
+	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 </script>
 
@@ -17,14 +17,16 @@
 	<section>
 		<nav>
 			<ul class="header__nav-list">
-				<li data-active={$page.url.pathname === "/"}><a href="/">Home</a></li>
-				<li class="header__nav__services-container" data-active={$page.url.pathname === "/services"}>
-					<a href="/services">Services <Icon icon="ri:arrow-drop-down-line" inline={true}/> </a>
-					<div class="header__nav__services">
-					</div>
+				<li data-active={$page.url.pathname === '/'}><a href="/">Home</a></li>
+				<li
+					class="header__nav__services-container"
+					data-active={$page.url.pathname === '/services'}
+				>
+					<a href="/services">Services <Icon icon="ri:arrow-drop-down-line" inline={true} /> </a>
+					<div class="header__nav__services"></div>
 				</li>
-				<li data-active={$page.url.pathname === "/why"}><a href="/why">Why Us</a></li>
-				<li data-active={$page.url.pathname === "/about"}><a href="/about">About</a></li>
+				<li data-active={$page.url.pathname === '/why'}><a href="/why">Why Us</a></li>
+				<li data-active={$page.url.pathname === '/about'}><a href="/about">About</a></li>
 			</ul>
 		</nav>
 	</section>
@@ -50,18 +52,18 @@
 		@include flexbox(space-between, center);
 		gap: 3rem;
 
-		li  > a { 
+		li > a {
 			text-decoration: none;
 			color: black;
-			transition: .4s;
-			padding: .3rem .6rem;
-			&:hover { 
+			transition: 0.4s;
+			padding: 0.3rem 0.6rem;
+			&:hover {
 				color: $primary-color;
 				font-weight: 500;
 			}
 		}
 
-		li[data-active=true] > a {
+		li[data-active='true'] > a {
 			color: $primary-color;
 			border-bottom: 2px solid $primary-color;
 		}
@@ -75,11 +77,11 @@
 		font-size: $text-small;
 	}
 
-	.header__logo-link { 
+	.header__logo-link {
 		text-decoration: none;
 	}
 
-	.header__nav__services { 
+	.header__nav__services {
 		position: absolute;
 		width: calc(100% - calc($page-block-padding * 3));
 		height: 20rem;
@@ -87,22 +89,24 @@
 		top: 7rem;
 		transform: translateX(-50%);
 		background: white;
-		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
-		border-radius: .5rem;
+		box-shadow:
+			0 4px 15px rgba(0, 0, 0, 0.2),
+			0 2px 6px rgba(0, 0, 0, 0.15);
+		border-radius: 0.5rem;
 		opacity: 0;
 		visibility: hidden;
-		transition: opacity 0.3s ease, visibility 0.3s ease;
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
 	}
 
-	.header__nav__services-container { 
-
-		&:hover, &:focus-within { 
+	.header__nav__services-container {
+		&:hover,
+		&:focus-within {
 			.header__nav__services {
 				opacity: 1; /* Show the element */
 				visibility: visible; /* Make the element visible */
 			}
 		}
 	}
-
-
 </style>

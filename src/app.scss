@@ -1,4 +1,4 @@
-@use "./css_lib" as *;
+@use './css_lib' as *;
 
 *,
 *::before,
@@ -9,14 +9,13 @@
 	font-family: $primary-font;
 }
 
-
 body {
 	font-family: $primary-font;
 	max-width: 150rem;
 	margin: 0 auto;
 }
 
-html { 
+html {
 	scroll-behavior: smooth;
 }
 
@@ -34,20 +33,20 @@ html {
 	font-weight: 500;
 }
 
-.primary-btn { 
+.primary-btn {
 	@extend .btn;
 	background: $primary-color;
-	color: white
+	color: white;
 }
 
-.white-btn { 
+.white-btn {
 	@extend .btn;
 	background: white;
 	font-weight: 500;
 	color: black;
 }
 
-.dot { 
+.dot {
 	width: 5px;
 	height: 5px;
 	background: black;
@@ -55,6 +54,6 @@ html {
 	border-radius: 50%;
 }
 
-h1 { 
+h1 {
 	font-size: $text-h1;
 }

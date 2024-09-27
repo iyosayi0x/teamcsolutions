@@ -1,15 +1,17 @@
-[{
-    "index":1,
-    "title":"Cloud Solutions",
-    "description":"We provide scalable cloud services to boost efficiency and streamline your business operation"
-},
-{
-    "index":2,
-    "title":"Cyber Security",
-    "description":"Comprehensive cybersecurity solutions to protect your data and systems from evolving threats and risks."
-},
-{
-    "index":3,
-    "title":"AI & Machine Learning",
-    "description":"Advanced AI and machine learning solutions to turn data into actionable insights and drive innovation."
-}]
+[
+	{
+		"index": 1,
+		"title": "Cloud Solutions",
+		"description": "We provide scalable cloud services to boost efficiency and streamline your business operation"
+	},
+	{
+		"index": 2,
+		"title": "Cyber Security",
+		"description": "Comprehensive cybersecurity solutions to protect your data and systems from evolving threats and risks."
+	},
+	{
+		"index": 3,
+		"title": "AI & Machine Learning",
+		"description": "Advanced AI and machine learning solutions to turn data into actionable insights and drive innovation."
+	}
+]
