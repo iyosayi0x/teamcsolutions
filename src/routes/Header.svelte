@@ -32,7 +32,7 @@
 
 	.header {
 		@include flexbox(space-between, center);
-		padding: 2.5rem 7.5rem;
+		padding: 2.5rem $page-block-padding;
 		background: white;
 	}
 

@@ -9,6 +9,8 @@ $primary-color: #2176ff;
 $secondary-color: #e8f1ff;
 $grey-color-1:#797979;
 
+$page-block-padding:7.5rem;
+
 @mixin flexbox($justify-content: space-between, $align-items: center) {
 	display: flex;
 	justify-content: $justify-content;

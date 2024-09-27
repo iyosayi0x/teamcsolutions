@@ -77,7 +77,7 @@
         font-weight: 500;
     }
     .footer__top { 
-		padding: 2.5rem 7.5rem;
+		padding: 2.5rem $page-block-padding;
         margin-bottom: 2rem;
         @include flexbox(space-between, flex-start);
     }
@@ -118,7 +118,7 @@
 
     .footer__bottom { 
         border-top: 1px solid $grey-color-1;
-		padding: 1.5rem 7.5rem;
+		padding: 1.5rem $page-block-padding;
         div { 
             @include flexbox(flex-start, center);
             gap:.4rem;

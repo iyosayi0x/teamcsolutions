@@ -12,6 +12,8 @@
 
 body {
 	font-family: $primary-font;
+	max-width: 150rem;
+	margin: 0 auto;
 }
 
 .btn {
@@ -26,6 +28,12 @@ body {
 	@extend .btn;
 	background: $secondary-color;
 	font-weight: 500;
+}
+
+.primary-btn { 
+	@extend .btn;
+	background: $primary-color;
+	color: white
 }
 
 .white-btn { 
