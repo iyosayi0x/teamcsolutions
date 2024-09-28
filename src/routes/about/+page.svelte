@@ -7,7 +7,6 @@
 	import config from '$lib/config';
 	import Faq from './Faq.svelte';
 
-
 	let activeIndex: number | null = 1;
 	const toggleOrChangeActiveIndex = (index: number) => {
 		if (activeIndex === index) {

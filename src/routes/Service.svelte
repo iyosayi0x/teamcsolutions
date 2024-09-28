@@ -47,7 +47,7 @@
 	.service[data-reversed='true'] {
 		flex-direction: row-reverse;
 
-		.service__image__wrapper { 
+		.service__image__wrapper {
 			text-align: right;
 		}
 	}
