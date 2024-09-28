@@ -2,13 +2,14 @@
 	import logo from '$lib/assets/logo.png';
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
+	import ServiceNav from './ServiceNav.svelte';
 </script>
 
 <header class="header">
 	<!-- --- logo ---  -->
 	<a href="/" class="header__logo-link">
 		<section class="header__logo-container">
-			<img alt="logo" src={logo}  width="40"/>
+			<img alt="logo" src={logo} width="40" />
 			<div>Team Consulting Solutions</div>
 		</section>
 	</a>
@@ -22,8 +23,12 @@
 					class="header__nav__services-container"
 					data-active={$page.url.pathname === '/services'}
 				>
-					<a href="/services">Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size630px" /> </a>
-					<div class="header__nav__services"></div>
+					<a href="/services"
+						>Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size630px" />
+					</a>
+					<div class="header__nav__services">
+						<ServiceNav />
+					</div>
 				</li>
 				<li data-active={$page.url.pathname === '/about'}><a href="/about">About</a></li>
 			</ul>
@@ -83,7 +88,7 @@
 	.header__nav__services {
 		position: absolute;
 		width: calc(100% - calc($page-block-padding * 3));
-		height: 20rem;
+		min-height: 5rem;
 		left: 50%;
 		top: 7rem;
 		transform: translateX(-50%);
@@ -97,6 +102,7 @@
 		transition:
 			opacity 0.3s ease,
 			visibility 0.3s ease;
+		z-index: 1;
 	}
 
 	.header__nav__services-container {

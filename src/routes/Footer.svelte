@@ -75,8 +75,8 @@
 <style lang="scss">
 	@use '../css_lib' as *;
 
-	.footer{ 
-		border-top:1px solid rgba($grey-color-1,.4);
+	.footer {
+		border-top: 1px solid rgba($grey-color-1, 0.4);
 	}
 
 	.footer__logo {
@@ -127,7 +127,7 @@
 	}
 
 	.footer__bottom {
-		border-top:1px solid rgba($grey-color-1,.4);
+		border-top: 1px solid rgba($grey-color-1, 0.4);
 		padding: 1.5rem $page-block-padding;
 		div {
 			@include flexbox(flex-start, center);

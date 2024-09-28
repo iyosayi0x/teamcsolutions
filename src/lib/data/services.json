@@ -1,0 +1,20 @@
+[
+	{
+		"title": "Cloud Service",
+		"description": "Scalable cloud infrastructure.",
+		"icon": "carbon:cloud-service",
+		"link": "/services#cloud"
+	},
+	{
+		"title": "Cyber Security",
+		"description": "Fortify your digital defenses.",
+		"icon": "carbon:shield",
+		"link": "/services#cyber-security"
+	},
+	{
+		"title": "Machine Learning",
+		"description": "Custom ML solutions for innovation.",
+		"icon": "carbon:machine-learning",
+		"link": "/services#ai-ml"
+	}
+]

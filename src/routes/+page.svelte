@@ -1,6 +1,6 @@
 <script>
 	import Service from './Service.svelte';
-	import imageCloud from "$lib/assets/images/cloud.png";
+	import imageCloud from '$lib/assets/images/cloud.png';
 </script>
 
 <svelte:head>
@@ -85,7 +85,7 @@
 		color: white;
 	}
 
-	.home__service-list { 
+	.home__service-list {
 		@include flexbox(flex-start, center);
 		flex-direction: column;
 		gap: 4rem;

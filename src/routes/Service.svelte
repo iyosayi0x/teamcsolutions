@@ -6,10 +6,10 @@
 <div class="service" data-reversed={reversed}>
 	<!-- --- service image ---  -->
 	<section>
-        {#if service.image}
-            <img src={service.image} alt={service.name} class="service__image"/>
-        {/if}
-    </section>
+		{#if service.image}
+			<img src={service.image} alt={service.name} class="service__image" />
+		{/if}
+	</section>
 
 	<section>
 		<!-- --- main service ---  -->
@@ -39,10 +39,10 @@
 		}
 	}
 
-    .service__image { 
-        width: 80%;
-        height: 100%;
-    }
+	.service__image {
+		width: 80%;
+		height: 100%;
+	}
 
 	.service[data-reversed='true'] {
 		flex-direction: row-reverse;
@@ -68,5 +68,4 @@
 		font-size: $text-h4;
 		font-weight: 500;
 	}
-
 </style>
