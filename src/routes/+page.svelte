@@ -1,6 +1,8 @@
 <script>
 	import Service from './Service.svelte';
-	import imageCloud from '$lib/assets/images/cloud.png';
+	import imageCloud from '$lib/images/cloud.png';
+	import imageRobot from '$lib/images/robot-shield.png';
+	import fingerPrint from '$lib/images/finger-print.png';
 </script>
 
 <svelte:head>
@@ -37,7 +39,7 @@
 			name: 'Cyber Security',
 			description:
 				"Shield your digital assets with our robust cybersecurity solutions. Tailored to address the ever-evolving threat landscape, our comprehensive services safeguard your data and systems from breaches, malware, and other cyberattacks. From advanced threat detection and prevention to incident response and compliance, we provide the expertise and technology to protect your business's critical information.",
-			image: '',
+			image: fingerPrint,
 			link: ''
 		}}
 		reversed={true}
@@ -50,7 +52,7 @@
 			name: 'Ai & Machine Learning',
 			description:
 				'Unlock the power of your data with our cutting-edge AI and machine learning solutions. By harnessing the capabilities of advanced algorithms and predictive analytics, we transform raw data into actionable insights that drive innovation and strategic decision-making. From natural language processing and computer vision to predictive modeling and automation, our solutions empower businesses to gain a competitive edge and achieve unprecedented results.',
-			image: '',
+			image: imageRobot,
 			link: ''
 		}}
 	>

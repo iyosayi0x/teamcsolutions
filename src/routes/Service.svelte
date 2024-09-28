@@ -5,7 +5,7 @@
 
 <div class="service" data-reversed={reversed}>
 	<!-- --- service image ---  -->
-	<section>
+	<section class="service__image__wrapper">
 		{#if service.image}
 			<img src={service.image} alt={service.name} class="service__image" />
 		{/if}
@@ -33,7 +33,7 @@
 
 	.service {
 		@include flexbox(space-between, center);
-		padding: 3rem $page-block-padding;
+		padding: 2.5rem $page-block-padding;
 		& > section {
 			flex: 0.5;
 		}
@@ -46,6 +46,10 @@
 
 	.service[data-reversed='true'] {
 		flex-direction: row-reverse;
+
+		.service__image__wrapper { 
+			text-align: right;
+		}
 	}
 
 	.service__name {

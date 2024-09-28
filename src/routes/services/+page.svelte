@@ -117,7 +117,7 @@
 	}
 
 	.service__sec {
-		background-image: url('$lib/assets/images/robot-shield.png');
+		background-image: url('$lib/images/robot-shield.png');
 		background-size: cover;
 		background-repeat: no-repeat;
 	}
