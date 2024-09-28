@@ -8,8 +8,8 @@
 	<!-- --- logo ---  -->
 	<a href="/" class="header__logo-link">
 		<section class="header__logo-container">
-			<img alt="logo" src={logo} />
-			<div>TC Solutions</div>
+			<img alt="logo" src={logo}  width="40"/>
+			<div>Team Consulting Solutions</div>
 		</section>
 	</a>
 
@@ -22,10 +22,9 @@
 					class="header__nav__services-container"
 					data-active={$page.url.pathname === '/services'}
 				>
-					<a href="/services">Services <Icon icon="ri:arrow-drop-down-line" inline={true} /> </a>
+					<a href="/services">Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size630px" /> </a>
 					<div class="header__nav__services"></div>
 				</li>
-				<li data-active={$page.url.pathname === '/why'}><a href="/why">Why Us</a></li>
 				<li data-active={$page.url.pathname === '/about'}><a href="/about">About</a></li>
 			</ul>
 		</nav>
@@ -42,7 +41,7 @@
 
 	.header {
 		@include flexbox(space-between, center);
-		padding: 2.5rem $page-block-padding;
+		padding: 2rem $page-block-padding;
 		background: white;
 		position: relative;
 	}

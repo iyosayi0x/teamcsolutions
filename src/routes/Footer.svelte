@@ -55,9 +55,6 @@
 			<div class="footer__section__title">COMPANY</div>
 			<ul class="footer__section__links">
 				<li>
-					<a href="/why">Why Us</a>
-				</li>
-				<li>
 					<a href="/about#contact">Contact Us</a>
 				</li>
 				<li>
@@ -130,7 +127,7 @@
 	}
 
 	.footer__bottom {
-		border-top: 1px solid $grey-color-1;
+		border-top:1px solid rgba($grey-color-1,.4);
 		padding: 1.5rem $page-block-padding;
 		div {
 			@include flexbox(flex-start, center);

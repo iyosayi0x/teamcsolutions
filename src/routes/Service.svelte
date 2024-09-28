@@ -23,7 +23,7 @@
 
 		<!-- --- action button ---  -->
 		<div class="service__action">
-			<a href={service.link} class="primary-btn">Get A Consultation</a>
+			<a href={service.link} class="primary-btn">Learn More</a>
 		</div>
 	</section>
 </div>
