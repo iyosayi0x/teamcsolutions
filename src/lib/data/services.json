@@ -2,13 +2,13 @@
 	{
 		"title": "Cloud Service",
 		"description": "Scalable cloud infrastructure.",
-		"icon": "carbon:cloud-service",
+		"icon": "material-symbols:cloud-outline",
 		"link": "/services#cloud"
 	},
 	{
 		"title": "Cyber Security",
 		"description": "Fortify your digital defenses.",
-		"icon": "carbon:shield",
+		"icon": "simple-icons:cyberdefenders",
 		"link": "/services#cyber-security"
 	},
 	{
