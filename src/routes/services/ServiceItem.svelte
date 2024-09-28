@@ -1,9 +1,10 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
+
 	export let icon: string;
 	export let title: string;
 	export let description: string;
 	export let highlighted: boolean = false;
-	import Icon from '@iconify/svelte';
 </script>
 
 <article data-highlighted={highlighted} class="service__item">

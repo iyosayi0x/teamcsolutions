@@ -1,9 +1,10 @@
 <script>
-	import logo from '$lib/assets/logo.png';
-	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
-	import ServiceNav from './ServiceNav.svelte';
+	import { page } from '$app/stores';
+
+	import logo from '$lib/assets/logo.png';
 	import config from '$lib/config';
+	import ServiceNav from './ServiceNav.svelte';
 </script>
 
 <header class="header">

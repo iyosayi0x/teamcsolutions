@@ -1,7 +1,7 @@
 <script lang="ts">
-	import config from '$lib/config';
-import serviceData from '$lib/data/services.json';
 	import Icon from '@iconify/svelte';
+	import config from '$lib/config';
+	import serviceData from '$lib/data/services.json';
 </script>
 
 <div class="service__nav">
@@ -20,7 +20,9 @@ import serviceData from '$lib/data/services.json';
 	</section>
 
 	<aside class="service__nav__aside">
-		<div class="service__nav__custom">Are looking for custom service? <a href="mailto:info@{config.contact.email}">Contact Us</a></div>
+		<div class="service__nav__custom">
+			Are looking for custom service? <a href="mailto:info@{config.contact.email}">Contact Us</a>
+		</div>
 	</aside>
 </div>
 
@@ -82,20 +84,20 @@ import serviceData from '$lib/data/services.json';
 		flex: 0.35;
 		align-self: stretch;
 		background: #e1e1e1;
-		border-radius: 0 .5rem .5rem 0;
+		border-radius: 0 0.5rem 0.5rem 0;
 		@include flexbox(center, flex-end);
 		padding-bottom: 2rem;
 	}
 
-	.service__nav__custom { 
+	.service__nav__custom {
 		font-size: $text-small;
 		text-align: center;
 		background: white;
 		width: fit-content;
 		margin: 0 auto;
-		padding: .7rem 1rem;
-		border-radius: .7rem;
-		a  {
+		padding: 0.7rem 1rem;
+		border-radius: 0.7rem;
+		a {
 			text-decoration: none;
 			color: $primary-color;
 		}
