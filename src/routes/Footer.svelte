@@ -39,14 +39,14 @@
 			<div class="footer__section__title">SERVICES</div>
 			<ul class="footer__section__links">
 				<li>
-					<a href="/services/cyber-security">Cybersecurity</a>
+					<a href="/services#cyber-security">Cybersecurity</a>
 				</li>
 				<li>
-					<a href="/services/cloud">Cloud Solutions</a>
+					<a href="/services#cloud">Cloud Solutions</a>
 				</li>
 
 				<li>
-					<a href="/services/machine-learning">AI And Machine Learning</a>
+					<a href="/services#ai-ml">AI And Machine Learning</a>
 				</li>
 			</ul>
 		</section>

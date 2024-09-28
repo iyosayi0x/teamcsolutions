@@ -220,11 +220,6 @@
 		color: white;
 	}
 
-	.about__why__main {
-		@include flexbox(space-between, flex-start);
-		margin-top: 2rem;
-	}
-
 	.about__why__image-container {
 		height: 50rem;
 		background: $grey-color-1;
