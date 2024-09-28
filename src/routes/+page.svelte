@@ -1,9 +1,46 @@
 <script>
+	import { onMount, onDestroy } from 'svelte';
 	import Service from './Service.svelte';
 	import imageCloud from '$lib/images/cloud.png';
 	import imageRobot from '$lib/images/robot-shield.png';
 	import fingerPrint from '$lib/images/finger-print.png';
 	import config from '$lib/config';
+
+	import techImage from '$lib/images/tech-comp.jpg';
+	import serverImage from '$lib/images/server-comp.jpg';
+	import cyberImage from '$lib/images/robot-shield.png';
+
+	let currentImageIndex = 0;
+	const images = [techImage, serverImage, cyberImage];
+
+	let currentTextIndex = 0;
+	const texts = [
+		'Cutting-Edge Cloud, Cybersecurity, and AI Solutions.',
+		'Transform Your Business with Scalable Cloud Services.',
+		'Stay Ahead of Cybersecurity Threats with AI-Driven Solutions.'
+	];
+
+	let currentDescriptionIndex = 0;
+	const descriptions = [
+		'Cloud, cybersecurity, and AI solutions for success and secure digital transformation.',
+		'Innovative cloud solutions for the future of digital transformation.',
+		'AI-powered solutions to safeguard and empower your business.'
+	];
+
+	let interval;
+
+	onMount(() => {
+		interval = setInterval(() => {
+			currentImageIndex = (currentImageIndex + 1) % images.length;
+			currentTextIndex = (currentTextIndex + 1) % texts.length;
+			currentDescriptionIndex = (currentDescriptionIndex + 1) % descriptions.length;
+		}, 5000); // Change image and text every 5 seconds
+	});
+
+	// Clean up interval when the component is destroyed
+	onDestroy(() => {
+		clearInterval(interval);
+	});
 </script>
 
 <svelte:head>
@@ -11,12 +48,13 @@
 	<meta name="description" content="Team Consulting solutions" />
 </svelte:head>
 
-<section class="home__banner-container">
+<section
+	class="home__banner-container"
+	style={`background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(173, 216, 230, 0) 70%), url(${images[currentImageIndex]})`}
+>
 	<div class="home__banner-cta">
-		<h1 class="home__banner-cta__text">Cutting-Edge Cloud, Cybersecurity, and AI Solutions.</h1>
-		<p class="home__banner-cta__desc">
-			Cloud, cybersecurity, and AI solutions for success and secure digital transformation.
-		</p>
+		<h1 class="home__banner-cta__text" transition:fade>{texts[currentTextIndex]}</h1>
+		<p class="home__banner-cta__desc" transition:fade>{descriptions[currentDescriptionIndex]}</p>
 		<a class="white-btn" href="mailto:{config.contact.email}">Contact Us</a>
 	</div>
 </section>
@@ -63,14 +101,15 @@
 
 <style lang="scss">
 	@use '../css_lib' as *;
+	@use '../css_lib' as *;
+
 	.home__banner-container {
 		height: 45rem;
 		width: 100%;
-		background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(173, 216, 230, 0) 70%),
-			url('$lib/images/tech-comp.jpg');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
+		transition: background-image 1s ease-in-out; // Smooth transition for the background image
 	}
 
 	.home__banner-cta {
@@ -86,11 +125,13 @@
 	.home__banner-cta__text {
 		font-size: calc($text-h1 * 1.4);
 		color: white;
+		transition: opacity 1s ease; // Smooth transition for text opacity
 	}
 
 	.home__banner-cta__desc {
 		font-size: $text-h4;
 		color: white;
+		transition: opacity 1s ease; // Smooth transition for description opacity
 	}
 
 	.home__service-list {
