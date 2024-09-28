@@ -66,7 +66,11 @@
 	.home__banner-container {
 		height: 45rem;
 		width: 100%;
-		background: rgb(201, 201, 201);
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(173, 216, 230, 0) 70%),
+			url('$lib/images/tech-comp.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
 
 	.home__banner-cta {
@@ -76,6 +80,7 @@
 		@include flexbox(flex-start, flex-start);
 		flex-direction: column;
 		gap: 2rem;
+		z-index: 1;
 	}
 
 	.home__banner-cta__text {
