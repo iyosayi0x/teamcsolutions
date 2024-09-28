@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 	import ServiceNav from './ServiceNav.svelte';
+	import config from '$lib/config';
 </script>
 
 <header class="header">
@@ -37,7 +38,7 @@
 
 	<!-- --- contact ---  -->
 	<section>
-		<a href="mailto:info@teamcsolutions.com" class="secondary-btn">Contact Us</a>
+		<a href="mailto:{config.contact.email}" class="secondary-btn">Contact Us</a>
 	</section>
 </header>
 

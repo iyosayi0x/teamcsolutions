@@ -3,6 +3,7 @@
 	import imageCloud from '$lib/images/cloud.png';
 	import imageRobot from '$lib/images/robot-shield.png';
 	import fingerPrint from '$lib/images/finger-print.png';
+	import config from '$lib/config';
 </script>
 
 <svelte:head>
@@ -16,7 +17,7 @@
 		<p class="home__banner-cta__desc">
 			Cloud, cybersecurity, and AI solutions for success and secure digital transformation.
 		</p>
-		<a class="white-btn" href="mailto:info@teamcsolutions.com">Contact Us</a>
+		<a class="white-btn" href="mailto:{config.contact.email}">Contact Us</a>
 	</div>
 </section>
 

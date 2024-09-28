@@ -1,5 +1,6 @@
 <script lang="ts">
-	import serviceData from '$lib/data/services.json';
+	import config from '$lib/config';
+import serviceData from '$lib/data/services.json';
 	import Icon from '@iconify/svelte';
 </script>
 
@@ -19,7 +20,7 @@
 	</section>
 
 	<aside class="service__nav__aside">
-		<div class="service__nav__custom">Are looking for custom service? <a href="mailto:info@teamcsolutions.com">Contact Us</a></div>
+		<div class="service__nav__custom">Are looking for custom service? <a href="mailto:info@{config.contact.email}">Contact Us</a></div>
 	</aside>
 </div>
 

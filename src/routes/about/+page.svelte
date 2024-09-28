@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import officeImage from '$lib/assets/office.jpg';
-	import office2Image from '$lib/assets/office-2.jpg';
-	import Faq from './Faq.svelte';
+	import officeImage from '$lib/images/office.jpg';
+	import office2Image from '$lib/images/office-2.jpg';
 	import solutions from '$lib/data/about-solutions.json';
 	import faqs from '$lib/data/faq.json';
+	import config from '$lib/config';
+	import Faq from './Faq.svelte';
+
 
 	let activeIndex: number | null = 1;
 	const toggleOrChangeActiveIndex = (index: number) => {
@@ -26,7 +28,7 @@
 		Ready to transform your business? Our cloud and digital solutions offer unparalleled value.
 		Experience the difference firsthand.
 	</p>
-	<a href="mailto:info@teamcsolutions.com" class="primary-btn">Get A Consultation</a>
+	<a href="mailto:info@{config.contact.email}" class="primary-btn">Get A Consultation</a>
 </section>
 
 <section class="about__section">
