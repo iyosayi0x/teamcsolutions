@@ -117,16 +117,19 @@
 	}
 
 	.home__banner-cta {
-		width: 60%;
-		max-width: 80rem;
-		padding: 10rem;
 		@include flexbox(flex-start, flex-start);
-		flex-direction: column;
-		gap: 2rem;
-		z-index: 1;
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			width: 100%;
-			padding: 2rem 1rem;
+
+		& {
+			width: 60%;
+			max-width: 80rem;
+			padding: 10rem;
+			flex-direction: column;
+			gap: 2rem;
+			z-index: 1;
+			@media screen and (max-width: $tab-phone-breakpoint) {
+				width: 100%;
+				padding: 2rem 1rem;
+			}
 		}
 	}
 

@@ -36,21 +36,26 @@
 	.header {
 		@include flexbox(space-between, center);
 		@include useBlockPadding(2rem);
-		background: white;
-		position: relative;
 
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			box-shadow: 1px 3px 10px #bfbfbf;
-			padding: 1rem 1rem;
+		& {
+			background: white;
+			position: relative;
+
+			@media screen and (max-width: $tab-phone-breakpoint) {
+				box-shadow: 1px 3px 10px #bfbfbf;
+				padding: 1rem 1rem;
+			}
 		}
 	}
 
 	.header__logo-container {
 		@include flexbox(flex-start, center);
-		gap: 1rem;
-		color: $primary-color;
-		font-weight: 700;
-		font-size: $text-h6;
+		& {
+			gap: 1rem;
+			color: $primary-color;
+			font-weight: 700;
+			font-size: $text-h6;
+		}
 	}
 
 	.header__logo-link {

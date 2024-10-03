@@ -105,7 +105,6 @@
 	}
 
 	.service__items {
-		@include flexbox(space-between, center);
 		gap: 2rem;
 		margin-top: 2rem;
 		padding: 1rem;
@@ -113,6 +112,7 @@
 		@media screen and (max-width: $tab-phone-breakpoint) {
 			flex-direction: column;
 		}
+		@include flexbox(space-between, center);
 	}
 
 	.service__button {

@@ -83,21 +83,23 @@
 
 	.footer__logo {
 		@include flexbox(flex-start, center);
-		gap: 1rem;
-		margin-bottom: 2rem;
+		& {
+			gap: 1rem;
+			margin-bottom: 2rem;
+		}
 	}
 	.footer__logo__name {
 		color: $grey-color-1;
 		font-weight: 500;
 	}
 	.footer__top {
-		@include useBlockPadding(2.5rem);
 		margin-bottom: 2rem;
-		@include flexbox(space-between, flex-start);
 
 		@media screen and (max-width: $tab-phone-breakpoint) {
 			flex-direction: column;
 		}
+		@include useBlockPadding(2.5rem);
+		@include flexbox(space-between, flex-start);
 	}
 
 	.footer__sub_links {
@@ -138,13 +140,15 @@
 	}
 
 	.footer__bottom {
-		border-top: 1px solid rgba($grey-color-1, 0.4);
 		@include useBlockPadding(1.5rem);
+		border-top: 1px solid rgba($grey-color-1, 0.4);
 
-		div {
-			@include flexbox(flex-start, center);
-			gap: 0.4rem;
-			color: $grey-color-1;
+		& {
+			div {
+				@include flexbox(flex-start, center);
+				gap: 0.4rem;
+				color: $grey-color-1;
+			}
 		}
 	}
 </style>

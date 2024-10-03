@@ -2,10 +2,17 @@
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
 	import { slide, fade } from 'svelte/transition';
+
+	// functions
 	let navOpen = false;
 	const toggleNav = () => {
 		navOpen = !navOpen;
 	};
+
+	// watch page change and close nav
+	page.subscribe((args) => {
+		navOpen = false;
+	});
 </script>
 
 <div class="mobile-only">

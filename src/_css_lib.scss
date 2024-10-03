@@ -14,10 +14,17 @@ $page-block-padding-mobile: 1rem;
 
 $tab-phone-breakpoint:821px;
 
-@mixin flexbox($justify-content: space-between, $align-items: center) {
-	display: flex;
-	justify-content: $justify-content;
-	align-items: $align-items;
+@mixin flexbox(
+  $justify-content: space-between,
+  $align-items: center,
+  $flex-direction: row,
+  $flex-wrap: nowrap
+) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
 }
 
 @mixin useBlockPadding($inline-padding:2rem){
@@ -25,6 +32,7 @@ $tab-phone-breakpoint:821px;
 	@media screen and (max-width:$tab-phone-breakpoint) { 
 		padding: $inline-padding $page-block-padding-mobile;
 	}
+
 }
 
 $text-h1: 2.5rem;
