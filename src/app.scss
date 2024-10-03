@@ -64,3 +64,9 @@ h1 {
 		display: none;
 	}
 }
+
+.mobile-only { 
+	@media screen and (min-width:$tab-phone-breakpoint){
+		display: none;
+	}
+}
