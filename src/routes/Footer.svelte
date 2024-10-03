@@ -19,49 +19,51 @@
 			</div>
 		</section>
 
-		<section>
-			<div class="footer__section__title">QUICK LINKS</div>
-			<ul class="footer__section__links">
-				<li>
-					<a href="/">Home</a>
-				</li>
-				<li>
-					<a href="/services">Services</a>
-				</li>
+		<div class="footer__sub_links">
+			<section>
+				<div class="footer__section__title">QUICK LINKS</div>
+				<ul class="footer__section__links">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/services">Services</a>
+					</li>
 
-				<li>
-					<a href="/about">About Us</a>
-				</li>
-			</ul>
-		</section>
+					<li>
+						<a href="/about">About Us</a>
+					</li>
+				</ul>
+			</section>
 
-		<section>
-			<div class="footer__section__title">SERVICES</div>
-			<ul class="footer__section__links">
-				<li>
-					<a href="/services#cyber-security">Cybersecurity</a>
-				</li>
-				<li>
-					<a href="/services#cloud">Cloud Solutions</a>
-				</li>
+			<section>
+				<div class="footer__section__title">SERVICES</div>
+				<ul class="footer__section__links">
+					<li>
+						<a href="/services#cyber-security">Cybersecurity</a>
+					</li>
+					<li>
+						<a href="/services#cloud">Cloud Solutions</a>
+					</li>
 
-				<li>
-					<a href="/services#ai-ml">AI And Machine Learning</a>
-				</li>
-			</ul>
-		</section>
+					<li>
+						<a href="/services#ai-ml">AI And Machine Learning</a>
+					</li>
+				</ul>
+			</section>
 
-		<section>
-			<div class="footer__section__title">COMPANY</div>
-			<ul class="footer__section__links">
-				<li>
-					<a href="/about#contact">Contact Us</a>
-				</li>
-				<li>
-					<a href="/about#faq">Faq</a>
-				</li>
-			</ul>
-		</section>
+			<section>
+				<div class="footer__section__title">COMPANY</div>
+				<ul class="footer__section__links">
+					<li>
+						<a href="/about#contact">Contact Us</a>
+					</li>
+					<li>
+						<a href="/about#faq">Faq</a>
+					</li>
+				</ul>
+			</section>
+		</div>
 	</section>
 
 	<section class="footer__bottom">
@@ -89,9 +91,18 @@
 		font-weight: 500;
 	}
 	.footer__top {
-		padding: 2.5rem $page-block-padding;
+		@include useBlockPadding(2.5rem);
 		margin-bottom: 2rem;
 		@include flexbox(space-between, flex-start);
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			flex-direction: column;
+		}
+	}
+
+	.footer__sub_links {
+		@include flexbox(space-between, flex-start);
+		gap: 4rem;
 	}
 
 	.footer__cta {
@@ -128,7 +139,8 @@
 
 	.footer__bottom {
 		border-top: 1px solid rgba($grey-color-1, 0.4);
-		padding: 1.5rem $page-block-padding;
+		@include useBlockPadding(1.5rem);
+
 		div {
 			@include flexbox(flex-start, center);
 			gap: 0.4rem;

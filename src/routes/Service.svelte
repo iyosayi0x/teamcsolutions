@@ -33,15 +33,22 @@
 
 	.service {
 		@include flexbox(space-between, center);
-		padding: 2.5rem $page-block-padding;
+		@include useBlockPadding(2.5rem);
 		& > section {
 			flex: 0.5;
+		}
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			flex-direction: column;
 		}
 	}
 
 	.service__image {
 		width: 80%;
 		height: 100%;
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			width: 100%;
+		}
 	}
 
 	.service[data-reversed='true'] {
@@ -49,6 +56,10 @@
 
 		.service__image__wrapper {
 			text-align: right;
+		}
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			flex-direction: column;
 		}
 	}
 

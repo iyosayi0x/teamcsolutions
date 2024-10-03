@@ -57,3 +57,10 @@ html {
 h1 {
 	font-size: $text-h1;
 }
+
+
+.desktop-only { 
+	@media screen and (max-width:$tab-phone-breakpoint){
+		display: none;
+	}
+}

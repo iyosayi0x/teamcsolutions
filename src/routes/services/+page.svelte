@@ -101,7 +101,7 @@
 	@use '../../css_lib.scss' as *;
 
 	.service {
-		padding: 4rem $page-block-padding;
+		@include useBlockPadding(4rem);
 	}
 
 	.service__items {
@@ -109,6 +109,10 @@
 		gap: 2rem;
 		margin-top: 2rem;
 		padding: 1rem;
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			flex-direction: column;
+		}
 	}
 
 	.service__button {

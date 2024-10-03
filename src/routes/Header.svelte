@@ -3,21 +3,23 @@
 	import { page } from '$app/stores';
 
 	import logo from '$lib/assets/logo.png';
-	import config from '$lib/config';
 	import ServiceNav from './ServiceNav.svelte';
 </script>
 
 <header class="header">
 	<!-- --- logo ---  -->
-	<a href="/" class="header__logo-link">
-		<section class="header__logo-container">
-			<img alt="logo" src={logo} width="40" />
-			<div>Team Consulting Solutions</div>
-		</section>
-	</a>
+
+	<div>
+		<a href="/" class="header__logo-link">
+			<section class="header__logo-container">
+				<img alt="logo" src={logo} class="header__logo" />
+				<div class="desktop-only">Team Consulting Solutions</div>
+			</section>
+		</a>
+	</div>
 
 	<!-- --- navigation ---  -->
-	<section>
+	<section class="header__navigation">
 		<nav>
 			<ul class="header__nav-list">
 				<li data-active={$page.url.pathname === '/'}><a href="/">Home</a></li>
@@ -38,19 +40,30 @@
 	</section>
 
 	<!-- --- contact ---  -->
-	<section>
-		<a href="mailto:{config.contact.email}" class="secondary-btn">Contact Us</a>
+	<section class="desktop-only">
+		<a href="/contact" class="secondary-btn">Contact Us</a>
 	</section>
 </header>
 
 <style lang="scss">
 	@use '../css_lib' as *;
+	.header__logo {
+		width: 40px;
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			width: 25px;
+		}
+	}
 
 	.header {
 		@include flexbox(space-between, center);
-		padding: 2rem $page-block-padding;
+		@include useBlockPadding(2rem);
 		background: white;
 		position: relative;
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			box-shadow: 1px 3px 10px #bfbfbf;
+			padding: 1rem 1rem;
+		}
 	}
 
 	.header__nav-list {
@@ -113,6 +126,40 @@
 			.header__nav__services {
 				opacity: 1; /* Show the element */
 				visibility: visible; /* Make the element visible */
+			}
+		}
+	}
+
+	.header__navigation {
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			position: fixed;
+			background: white;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			display: none;
+
+			&::before {
+				content: '';
+				position: fixed;
+				background: red;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				z-index: -1;
+				background: rgba(black, 0.5);
+			}
+
+			.header__nav-list {
+				flex-direction: column;
+				align-items: flex-start;
+				padding: 1rem;
+				z-index: 10;
+				background: white;
+				min-height: 20rem;
+				justify-content: flex-start;
 			}
 		}
 	}

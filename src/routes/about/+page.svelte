@@ -115,10 +115,6 @@
 	{/each}
 </section>
 
-<section class="about__contact" id="contact">
-	<div>Unlock Your Business Potential with Cloud Solutions”</div>
-</section>
-
 <style lang="scss">
 	@use '../../css_lib' as *;
 
@@ -148,7 +144,7 @@
 
 	.about__section {
 		margin-top: 8rem;
-		padding: 0 $page-block-padding;
+		@include useBlockPadding(2.5rem);
 		@include flexbox(space-between, center);
 	}
 
@@ -211,14 +207,6 @@
 		}
 	}
 
-	.about__contact {
-		background: $primary-color;
-		padding: 2.5rem $page-block-padding;
-		margin-top: 4rem;
-		text-align: center;
-		color: white;
-	}
-
 	.about__why__image-container {
 		height: 50rem;
 		background: $grey-color-1;
@@ -250,6 +238,6 @@
 	}
 
 	.about__faq {
-		padding: 2rem $page-block-padding;
+		@include useBlockPadding(2rem);
 	}
 </style>

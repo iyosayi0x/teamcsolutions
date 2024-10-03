@@ -107,7 +107,8 @@
 	@use '../css_lib' as *;
 
 	.home__banner-container {
-		height: 45rem;
+		height: fit-content;
+		min-height: 26rem;
 		width: 100%;
 		background-size: cover;
 		background-position: center;
@@ -123,18 +124,28 @@
 		flex-direction: column;
 		gap: 2rem;
 		z-index: 1;
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			width: 100%;
+			padding: 2rem 1rem;
+		}
 	}
 
 	.home__banner-cta__text {
 		font-size: calc($text-h1 * 1.4);
 		color: white;
 		transition: opacity 1s ease; // Smooth transition for text opacity
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h2;
+		}
 	}
 
 	.home__banner-cta__desc {
 		font-size: $text-h4;
 		color: white;
 		transition: opacity 1s ease; // Smooth transition for description opacity
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h6;
+		}
 	}
 
 	.home__service-list {
