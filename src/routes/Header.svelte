@@ -26,7 +26,7 @@
 					data-active={$page.url.pathname === '/services'}
 				>
 					<a href="/services"
-						>Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size630px" />
+						>Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size:20px" />
 					</a>
 					<div class="header__nav__services">
 						<ServiceNav />
@@ -80,7 +80,7 @@
 		gap: 1rem;
 		color: $primary-color;
 		font-weight: 700;
-		font-size: $text-small;
+		font-size: $text-h6;
 	}
 
 	.header__logo-link {
