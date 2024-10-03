@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { fade } from 'svelte/transition';
 	import Service from './Service.svelte';
 	import imageCloud from '$lib/images/cloud.png';
 	import imageRobot from '$lib/images/robot-shield.png';
@@ -27,7 +28,7 @@
 		'AI-powered solutions to safeguard and empower your business.'
 	];
 
-	let interval;
+	let interval: ReturnType<typeof setInterval> | null;
 
 	onMount(() => {
 		interval = setInterval(() => {
@@ -39,7 +40,9 @@
 
 	// Clean up interval when the component is destroyed
 	onDestroy(() => {
-		clearInterval(interval);
+		if (interval) {
+			clearInterval(interval);
+		}
 	});
 </script>
 
