@@ -56,7 +56,7 @@
 				<div class="footer__section__title">COMPANY</div>
 				<ul class="footer__section__links">
 					<li>
-						<a href="/about#contact">Contact Us</a>
+						<a href="/contact">Contact Us</a>
 					</li>
 					<li>
 						<a href="/about#faq">Faq</a>
