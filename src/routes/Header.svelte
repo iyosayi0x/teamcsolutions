@@ -2,7 +2,6 @@
 	import logo from '$lib/assets/logo.png';
 	import HeaderDesktopNavigation from './HeaderDesktopNavigation.svelte';
 	import HeaderMobileNavigation from './HeaderMobileNavigation.svelte';
-	import ServiceNav from './ServiceNav.svelte';
 </script>
 
 <header class="header">

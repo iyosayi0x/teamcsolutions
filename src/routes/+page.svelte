@@ -1,40 +1,52 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { fade } from 'svelte/transition';
+	// import { cubicOut } from 'svelte/easing';
+	// import { fade } from 'svelte/transition';
 	import Service from './Service.svelte';
 	import imageCloud from '$lib/images/cloud.png';
 	import imageRobot from '$lib/images/robot-shield.png';
 	import fingerPrint from '$lib/images/finger-print.png';
-	import config from '$lib/config';
 
 	import techImage from '$lib/images/tech-comp.jpg';
 	import serverImage from '$lib/images/server-comp.jpg';
 	import cyberImage from '$lib/images/robot-shield.png';
 
-	let currentImageIndex = 0;
-	const images = [techImage, serverImage, cyberImage];
-
-	let currentTextIndex = 0;
-	const texts = [
-		'Cutting-Edge Cloud, Cybersecurity, and AI Solutions.',
-		'Transform Your Business with Scalable Cloud Services.',
-		'Stay Ahead of Cybersecurity Threats with AI-Driven Solutions.'
-	];
-
-	let currentDescriptionIndex = 0;
-	const descriptions = [
-		'Cloud, cybersecurity, and AI solutions for success and secure digital transformation.',
-		'Innovative cloud solutions for the future of digital transformation.',
-		'AI-powered solutions to safeguard and empower your business.'
+	let currentDataIndex = 0;
+	const data = [
+		{
+			mainText: 'Cutting-Edge Cloud, Cybersecurity, and AI Solutions.',
+			description:
+				'Cloud, cybersecurity, and AI solutions for success and secure digital transformation.',
+			image: techImage
+		},
+		{
+			mainText: 'Transform Your Business with Scalable Cloud Services.',
+			description: 'Innovative cloud solutions for the future of digital transformation.',
+			image: serverImage
+		},
+		{
+			mainText: 'Stay Ahead of Cybersecurity Threats with AI-Driven Solutions.',
+			description: 'AI-powered solutions to safeguard and empower your business.',
+			image: cyberImage
+		}
 	];
 
 	let interval: ReturnType<typeof setInterval> | null;
 
+	// Function to preload images
+	function preloadImages() {
+		data.forEach((item) => {
+			const img = new Image();
+			img.src = item.image;
+		});
+	}
+
 	onMount(() => {
+		// Preload all images when the component mounts
+		preloadImages();
+
 		interval = setInterval(() => {
-			currentImageIndex = (currentImageIndex + 1) % images.length;
-			currentTextIndex = (currentTextIndex + 1) % texts.length;
-			currentDescriptionIndex = (currentDescriptionIndex + 1) % descriptions.length;
+			currentDataIndex = (currentDataIndex + 1) % data.length;
 		}, 5000); // Change image and text every 5 seconds
 	});
 
@@ -51,16 +63,20 @@
 	<meta name="description" content="Team Consulting solutions" />
 </svelte:head>
 
-<section
-	class="home__banner-container"
-	style={`background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(173, 216, 230, 0) 70%), url(${images[currentImageIndex]})`}
->
-	<div class="home__banner-cta">
-		<h1 class="home__banner-cta__text" transition:fade>{texts[currentTextIndex]}</h1>
-		<p class="home__banner-cta__desc" transition:fade>{descriptions[currentDescriptionIndex]}</p>
-		<a class="white-btn" href="mailto:{config.contact.email}">Contact Us</a>
-	</div>
-</section>
+{#each data as bannerData, i (i)}
+	{#if i === currentDataIndex}
+		<section
+			class="home__banner-container"
+			style={`background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(173, 216, 230, 0) 70%), url(${bannerData.image})`}
+		>
+			<div class="home__banner-cta">
+				<h1 class="home__banner-cta__text">{bannerData.mainText}</h1>
+				<p class="home__banner-cta__desc">{bannerData.description}</p>
+				<a class="white-btn" href="/contact">Contact Us</a>
+			</div>
+		</section>
+	{/if}
+{/each}
 
 <section class="home__service-list">
 	<!-- --- services ---  -->
@@ -113,7 +129,7 @@
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		transition: background-image 1s ease-in-out; // Smooth transition for the background image
+		transition: background-image 1.5s ease-in-out; // Smooth transition for the background image
 	}
 
 	.home__banner-cta {
