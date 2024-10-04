@@ -12,7 +12,7 @@
 
 	// watch page change and close nav
 	page.subscribe((args) => {
-		// navOpen = false;
+		navOpen = false;
 	});
 </script>
 
