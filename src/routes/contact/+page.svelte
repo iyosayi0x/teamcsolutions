@@ -10,17 +10,44 @@
 	</section>
 
 	<section class="contact__form-container">
-		<div></div>
+		<div class="contact__cta">
+			<h1 class="contact__cta__title">Contact Us</h1>
+			<p class="contact__cta__description">
+				Have a question or want to book a consultation? We're here to help! Use the form below to
+				ask about our services or schedule a consultation. We'll get back to you promptly.
+			</p>
+		</div>
 
-		<form>
-			<div>
-				<InputField />
-				<InputField />
-			</div>
+		<form class="contact__form">
+			<!-- --- main form ---  -->
+			<section class="contact__form-main">
+				<div class="contact__form__field__wrapper" data-type="dual">
+					<InputField fieldName="contact__firstName" label="First Name" />
+					<InputField fieldName="contact__lastName" label="Last Name" />
+				</div>
 
-			<div>
-				<InputField />
-			</div>
+				<div class="contact__form__field__wrapper">
+					<InputField fieldName="contact__email" label="Email" />
+				</div>
+
+				<div class="contact__form__field__wrapper" data-type="dual">
+					<InputField fieldName="first_name" label="First Name" />
+					<InputField fieldName="contact__firstName" label="Last Name" />
+				</div>
+
+				<div class="contact__form__field__wrapper">
+					<InputField fieldName="contact__role" label="Role" />
+				</div>
+
+				<div class="contact__form__field__wrapper">
+					<InputField fieldName="contact__message__content" label="Message" />
+				</div>
+			</section>
+
+			<!-- ---- action button ---  -->
+			<section class="contact__form__btn-container">
+				<button class="primary-btn">Send</button>
+			</section>
 		</form>
 	</section>
 </div>
@@ -33,10 +60,27 @@
 			flex: 0.5;
 			align-self: stretch;
 		}
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			display: block;
+		}
+	}
+
+	.contact__cta__title {
+		font-size: $text-h1;
+	}
+
+	.contact__cta__description {
+		font-size: $text-small;
+		color: $grey-color-1;
+		line-height: 1.4rem;
 	}
 
 	.contact__banner {
 		position: relative;
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			display: none;
+		}
 	}
 	.contact__banner__image {
 		width: 100%;
@@ -54,7 +98,26 @@
 	}
 
 	.contact__form-container {
+		@include useBlockPadding(4rem);
 		flex: 0.4;
-		@include useBlockPadding(2.5rem);
+		box-sizing: border-box;
+	}
+
+	.contact__form-main {
+		margin: 2rem 0 0 0;
+		& > div:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.contact__form__field__wrapper[data-type='dual'] {
+		@include flexbox(space-between, center);
+		gap: 1rem;
+	}
+
+	.contact__form__btn-container {
+		button {
+			width: 100%;
+		}
 	}
 </style>
