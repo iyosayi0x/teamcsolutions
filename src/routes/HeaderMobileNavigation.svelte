@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Icon from '@iconify/svelte';
-	import { slide } from 'svelte/transition';
+	import { slide, fade } from 'svelte/transition';
 	import serviceData from '$lib/data/services.json';
 
 	// functions
@@ -63,7 +63,7 @@
 			</div>
 		</div>
 
-		<div class="navigation__overlay" />
+		<div class="navigation__overlay" transition:fade />
 	{/if}
 </div>
 
