@@ -133,6 +133,17 @@
 		p {
 			font-size: $text-h4;
 		}
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			h1 {
+				font-size: $text-h2;
+			}
+			p {
+				font-size: $text-h6;
+			}
+
+			margin-bottom: 0;
+		}
 	}
 
 	.about__title {
@@ -140,12 +151,22 @@
 		max-width: 50rem;
 		font-weight: 500;
 		margin-bottom: 3rem;
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h4;
+		}
 	}
 
 	.about__section {
 		margin-top: 8rem;
 		@include useBlockPadding(2.5rem);
 		@include flexbox(space-between, center);
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			flex-direction: column;
+			gap: 2.5rem;
+			margin-top: 2rem;
+		}
 	}
 
 	.about__section[data-flex='no'] {
@@ -171,6 +192,10 @@
 			margin-top: 0.8rem;
 			line-height: 1.7rem;
 		}
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			padding-left: 1.5rem;
+		}
 	}
 
 	.about__services__service-title {
@@ -191,6 +216,10 @@
 			&:before {
 				content: '-';
 			}
+		}
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h5;
 		}
 	}
 

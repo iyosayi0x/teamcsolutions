@@ -113,6 +113,7 @@
 		right: 0;
 		height: 100vh;
 		background: rgba(black, 0.4);
+		z-index: 3;
 	}
 
 	.navigation__list {
