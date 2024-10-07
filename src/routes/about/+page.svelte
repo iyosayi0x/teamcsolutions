@@ -260,10 +260,17 @@
 		font-size: $text-h3;
 		font-weight: 400;
 		margin-bottom: 1rem;
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h5;
+			font-weight: 500;
+		}
 	}
 
 	.about__why__article__description {
 		line-height: 2rem;
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-small;
+		}
 	}
 
 	.about__faq {
