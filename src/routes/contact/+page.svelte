@@ -1,4 +1,6 @@
 <script lang="ts">
+	import config from '$lib/config';
+	import Icon from '@iconify/svelte';
 	import manImg from '$lib/images/pexels-italo-melo-881954-2379004.jpg';
 	import InputField from './InputField.svelte';
 </script>
@@ -17,6 +19,22 @@
 					Have a question or want to book a consultation? We're here to help! Use the form below to
 					ask about our services or schedule a consultation. We'll get back to you promptly.
 				</p>
+			</div>
+
+			<div class="contact__alt">
+				<div class="contact__alt__contact">
+					<Icon icon="ic:outline-email" style="color:inherit; font-size:inherit" inline={true} />
+					<a href="mailto:{config.contact.email}">{config.contact.email}</a>
+				</div>
+
+				<div class="contact__alt__contact">
+					<Icon
+						icon="mingcute:location-fill"
+						style="color:inherit; font-size:inherit"
+						inline={true}
+					/>
+					<a href={config.location.map}>{config.location.address}</a>
+				</div>
 			</div>
 
 			<form class="contact__form">
@@ -151,6 +169,26 @@
 	.contact__form__btn-container {
 		button {
 			width: 100%;
+		}
+	}
+
+	// --- contact alt ---
+	.contact__alt {
+		margin-top: 1.4rem;
+		padding-left: 2rem;
+		border-left: 2px solid $primary-color;
+		& > div:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	.contact__alt__contact {
+		color: $primary-color;
+		font-size: $text-small;
+		a {
+			text-decoration: none;
+			color: inherit;
+			margin-left: 0.5rem;
 		}
 	}
 </style>

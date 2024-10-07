@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
+
 	export let label: string | undefined;
 	export let fieldName: string | undefined;
 	export let inputField: InputFieldProps = {};
@@ -9,14 +11,27 @@
 <div class="field">
 	<label for={fieldName} class="field__label">{label}</label>
 	<div class="field__input-wrapper" data-type={fieldType}>
+		<!-- ---- default text field ---  -->
 		{#if fieldType === 'default'}
 			<input type="text" name={fieldName} class="field__input" {...inputField} />
+			<!-- ---- end of default text field ---  -->
+
+			<!-- --- textarea field ---  -->
 		{:else if fieldType === 'textarea'}
 			<textarea {...inputField} class="field__textarea" />
+			<!-- --- end of text areat field ---  -->
+
+			<!-- ---- phone number field ---  -->
 		{:else if (fieldType = 'phoneNumber')}
-			<input type="text" />
+			<div class="field__phoneNumber__codes">
+				<span>
+					<Icon icon="ri:arrow-drop-down-line" style="font-size:30px" />
+				</span>
+				<input type="text" readonly={true} />
+			</div>
 			<input type="number" {...inputField} />
 		{/if}
+		<!-- ---- end of phone number field ---  -->
 	</div>
 </div>
 
@@ -60,17 +75,36 @@
 		@include flexbox(flex-start, center);
 		background: none;
 		gap: 1rem;
-		input:nth-child(1) {
-			width: 5rem;
-			@extend .field__input;
-			background: #f6f6f6;
-			border-radius: 0.5rem;
-		}
-		input:nth-child(2) {
+
+		& > input:last-child {
 			flex: 1;
 			@extend .field__input;
 			background: #f6f6f6;
 			border-radius: 0.5rem;
+		}
+	}
+
+	.field__phoneNumber__codes {
+		@include flexbox(space-between, center);
+		background: #f6f6f6;
+		border-radius: 0.5rem;
+		padding: 0 0.5rem;
+
+		input {
+			@extend .field__input;
+			width: 4rem;
+		}
+
+		span {
+			transition: 0.4s;
+			display: grid;
+			place-items: center;
+		}
+	}
+
+	.field__phoneNumber__codes:focus-within {
+		span {
+			transform: rotateZ(180deg);
 		}
 	}
 </style>
