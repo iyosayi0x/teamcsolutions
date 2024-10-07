@@ -86,6 +86,10 @@
 		& {
 			gap: 1rem;
 			margin-bottom: 2rem;
+
+			@media screen and (max-width: $tab-phone-breakpoint) {
+				margin-bottom: 1rem;
+			}
 		}
 	}
 	.footer__logo__name {
@@ -94,17 +98,22 @@
 	}
 	.footer__top {
 		margin-bottom: 2rem;
-
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			flex-direction: column;
-		}
 		@include useBlockPadding(2.5rem);
 		@include flexbox(space-between, flex-start);
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			display: block;
+		}
 	}
 
 	.footer__sub_links {
 		@include flexbox(space-between, flex-start);
 		gap: 4rem;
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			flex-direction: column;
+			margin-top: 3rem;
+		}
 	}
 
 	.footer__cta {
@@ -118,6 +127,10 @@
 		font-size: $text-h3;
 		font-weight: 500;
 		color: black;
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h4;
+		}
 	}
 
 	.footer__section__title {

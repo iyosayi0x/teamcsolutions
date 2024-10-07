@@ -3,12 +3,42 @@
 	import Icon from '@iconify/svelte';
 	import manImg from '$lib/images/pexels-italo-melo-881954-2379004.jpg';
 	import InputField from './InputField.svelte';
+
+	const roleOptions = [
+		'IT Manager/Director',
+		'Chief Technology Officer (CTO)',
+		'Project Manager',
+		'Data Scientist',
+		'AI Specialist/Engineer',
+		'Cybersecurity Analyst',
+		'Cloud Architect',
+		'Software Developer/Engineer',
+		'Business Owner/CEO',
+		'Systems Administrator',
+		'Consultant',
+		'HR/Recruitment',
+		'Vendor/Partner',
+		'Research & Development',
+		'Procurement Officer',
+		'Compliance/Regulation Officer',
+		'Entrepreneur/Startup Founder',
+		'Student/Intern'
+	];
 </script>
 
 <div class="contact">
 	<section class="contact__banner">
 		<img src={manImg} alt="contact display banner" class="contact__banner__image" />
 		<div class="contact__banner__overlay" />
+		<div class="contact__banner__info">
+			<div class="contact__banner__header">Contact Our Experts</div>
+			<p class="contact__banner__desc">
+				Leverage the power of AI to drive innovation, enhance security, and optimize your
+				operations. Our expert team provides tailored solutions to help you achieve your business
+				goals. From data-driven insights to robust cybersecurity measures, we're here to support
+				your success.
+			</p>
+		</div>
 	</section>
 
 	<section class="contact__form-container">
@@ -71,7 +101,16 @@
 					</div>
 
 					<div class="contact__form__field__wrapper">
-						<InputField fieldName="contact__role" label="Role" options={[]} />
+						<InputField
+							fieldName="contact__role"
+							label="Role"
+							options={roleOptions.map((option) => ({ value: option }))}
+							onSelectOption={(args) => {
+								console.log(args);
+							}}
+							fieldType="dropdown"
+							inputField={{ placeholder: 'Select an option' }}
+						/>
 					</div>
 
 					<div class="contact__form__field__wrapper">
@@ -133,7 +172,6 @@
 	.contact__banner__image {
 		width: 100%;
 		height: 100%;
-		height: 50rem;
 		object-fit: cover;
 	}
 	.contact__banner__overlay {
@@ -190,5 +228,25 @@
 			color: inherit;
 			margin-left: 0.5rem;
 		}
+	}
+
+	// --- banner ---
+	.contact__banner__info {
+		position: absolute;
+		bottom: 3rem;
+		left: 3rem;
+		color: white;
+		z-index: 1;
+	}
+
+	.contact__banner__header {
+		font-size: $text-h2;
+		font-weight: 500;
+		line-height: 2.5rem;
+	}
+	.contact__banner__desc {
+		font-size: $text-small;
+		line-height: 1.7rem;
+		color: rgb(227, 224, 224);
 	}
 </style>
