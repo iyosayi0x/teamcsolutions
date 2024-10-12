@@ -2,9 +2,12 @@
 	import Icon from '@iconify/svelte';
 	import ServiceItem from './ServiceItem.svelte';
 	import Banner from '../Banner.svelte';
+	import ImageList from '../ImageList.svelte';
 
 	export let bannerConfig: { mainText: string; description: string; image: string };
 	export let features: { title: string; description: string; icon: string }[];
+	export let benefitsConfig: { title: string };
+	export let benefits: { title: string; description: string }[];
 </script>
 
 <Banner banner={bannerConfig} />
@@ -16,7 +19,14 @@
 	>
 </div>
 
+<ImageList title={benefitsConfig.title} items={benefits} displayImage={bannerConfig.image} />
+
 <section class="service">
+	<div class="service__feature__title">
+		<div>Our Comprehensive Features</div>
+		<p>Discover the Power of Our Solutions, Tailored to Your Unique Needs</p>
+	</div>
+
 	<div class="service__items">
 		{#each features as feature}
 			<ServiceItem title={feature.title} description={feature.description} icon={feature.icon} />
@@ -61,6 +71,19 @@
 	.service__button {
 		margin-top: 2rem;
 		text-align: right;
+	}
+
+	.service__feature__title {
+		margin: 2rem 0;
+		text-align: center;
+		div {
+			font-size: $text-h3;
+			font-weight: 500;
+			line-height: 2.4rem;
+		}
+		p {
+			color: $grey-color-1;
+		}
 	}
 
 	.banner__outline {

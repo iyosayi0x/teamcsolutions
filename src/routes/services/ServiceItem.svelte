@@ -27,6 +27,7 @@
 		color: black;
 		transition: 0.4s;
 		text-align: center;
+		flex: 1;
 
 		&:hover {
 			transform: scale(1.05);

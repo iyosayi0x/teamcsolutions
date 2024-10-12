@@ -25,75 +25,120 @@ export const feats = {
 	ai: {
 		title: 'Machine Learning',
 		description:
-			'Engage our experts to develop and train custom machine learning models that solve complex problems, optimize processes, and drive innovation.',
+			'Develop and train custom AI models to solve complex problems and drive innovation.',
 		features: [
 			{
 				title: 'Custom Model Development',
-				description:
-					'Design machine learning models tailored to your business, driving accurate predictions and insightful decision-making.',
+				description: 'Design tailored AI models for accurate predictions and informed decisions.',
 				icon: 'carbon:machine-learning'
 			},
 			{
 				title: 'Model Training & Tuning',
-				description:
-					'Fine-tune your machine learning models for enhanced accuracy and performance, ensuring optimal results.',
+				description: 'Fine-tune models for optimal accuracy and performance.',
 				icon: 'carbon:chart-line'
 			},
 			{
 				title: 'Automation & Integration',
-				description:
-					'Integrate machine learning solutions into your workflows, automating processes and boosting operational efficiency.',
+				description: 'Integrate AI solutions into workflows for efficient automation.',
 				icon: 'carbon:automatic'
 			}
 		]
 	},
 	cloud: {
-		title: 'Cloud Service',
+		title: 'Cloud Services',
 		description:
-			'Hire us to design and implement scalable cloud infrastructure on AWS, tailored to your specific needs and goals.',
+			'Design and implement scalable cloud infrastructure on AWS for your specific needs.',
 		features: [
 			{
 				title: 'Scalability',
-				description:
-					'Easily scale your cloud infrastructure to meet the demands of your business as it grows and evolves.',
+				description: 'Easily scale cloud infrastructure to meet growing business demands.',
 				icon: 'carbon:scale'
 			},
 			{
 				title: 'Reliability',
-				description:
-					'Benefit from robust, high-availability cloud services designed to minimize downtime and ensure seamless operation.',
+				description: 'Benefit from robust, high-availability cloud services for minimal downtime.',
 				icon: 'icon-park-outline:protect'
 			},
 			{
 				title: 'Cost Optimization',
-				description:
-					'Optimize your cloud spend by implementing cost-effective strategies while maintaining performance and security.',
+				description: 'Optimize cloud spending while maintaining performance and security.',
 				icon: 'carbon:currency'
 			}
 		]
 	},
 	cyber: {
 		title: 'Cybersecurity',
-		description:
-			'Partner with us to fortify your digital defenses with comprehensive cybersecurity solutions, including threat detection, incident response, and compliance.',
+		description: 'Fortify your digital defenses with comprehensive cybersecurity solutions.',
 		features: [
 			{
 				title: 'Threat Detection',
-				description:
-					'Implement advanced threat detection systems to proactively identify and mitigate risks before they become breaches.',
+				description: 'Proactively identify and mitigate risks with advanced threat detection.',
 				icon: 'carbon:warning-alt'
 			},
 			{
 				title: 'Incident Response',
-				description:
-					'Respond to security incidents quickly and effectively, minimizing potential damage and restoring system integrity.',
+				description: 'Respond to security incidents quickly and effectively, minimizing damage.',
 				icon: 'carbon:flash'
 			},
 			{
 				title: 'Compliance',
 				description:
-					'Ensure your systems meet industry standards and regulatory compliance for data protection and privacy.',
+					'Ensure compliance with industry standards and regulations for data protection.',
 				icon: 'carbon:document-security'
+			}
+		]
+	}
+};
+
+export const benefits = {
+	ai: {
+		title: 'Benefits of AI Services',
+		benefits: [
+			{
+				title: 'Enhanced Decision-Making',
+				description: 'Leverage AI insights for more accurate and informed decision-making.'
+			},
+			{
+				title: 'Automated Processes',
+				description: 'Automate routine tasks to improve efficiency and reduce errors.'
+			},
+			{
+				title: 'Scalable and Adaptable AI',
+				description: 'AI models that grow and evolve with your business needs.'
+			}
+		]
+	},
+	cyber: {
+		title: 'Cybersecurity Benefits',
+		benefits: [
+			{
+				title: 'Proactive Threat Prevention',
+				description: 'Identify and address vulnerabilities before they become breaches.'
+			},
+			{
+				title: 'Rapid Incident Response',
+				description: 'Minimize downtime and recover from security incidents quickly.'
+			},
+			{
+				title: 'Data Privacy and Compliance',
+				description: 'Ensure compliance with regulations and protect sensitive data.'
+			}
+		]
+	},
+	cloud: {
+		title: 'Cloud Services Benefits',
+		benefits: [
+			{
+				title: 'Scalability and Flexibility',
+				description: 'Easily adjust resources to meet changing business demands.'
+			},
+			{
+				title: 'High Availability and Reliability',
+				description: 'Ensure minimal downtime and consistent performance.'
+			},
+			{
+				title: 'Cost Optimization',
+				description: 'Optimize cloud spending while maintaining performance and security.'
 			}
 		]
 	}

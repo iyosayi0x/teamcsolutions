@@ -1,20 +1,11 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
 	import officeImage from '$lib/images/office.jpg';
 	import office2Image from '$lib/images/office-2.jpg';
 	import solutions from '$lib/data/about-solutions.json';
 	import faqs from '$lib/data/faq.json';
 	import config from '$lib/config';
 	import Faq from './Faq.svelte';
-
-	let activeIndex: number | null = 1;
-	const toggleOrChangeActiveIndex = (index: number) => {
-		if (activeIndex === index) {
-			activeIndex = null;
-		} else {
-			activeIndex = index;
-		}
-	};
+	import ImageList from '../ImageList.svelte';
 </script>
 
 <svelte:head>
@@ -30,41 +21,11 @@
 	<a href="mailto:info@{config.contact.email}" class="primary-btn">Get A Consultation</a>
 </section>
 
-<section class="about__section">
-	<section style="flex:.5">
-		<div class="about__title">Empowering Businesses with Strategic Road Maps</div>
-		<!-- --- services ---  -->
-		<div class="about__services__list">
-			{#each solutions as { title, description, index }}
-				<article class="about__services__service">
-					<div
-						class="about__services__service-title"
-						tabindex="0"
-						role="button"
-						on:click={() => toggleOrChangeActiveIndex(index)}
-						on:keypress={() => toggleOrChangeActiveIndex(index)}
-						data-active={activeIndex === index}
-					>
-						{title}
-					</div>
-
-					{#if activeIndex === index}
-						<div
-							class="about__services__service-description"
-							transition:slide={{ delay: 250, duration: 300, axis: 'y' }}
-						>
-							{description}
-						</div>
-					{/if}
-				</article>
-			{/each}
-		</div>
-	</section>
-
-	<section class="about__services__image-container" style="flex:.5">
-		<img src={officeImage} alt="office place" />
-	</section>
-</section>
+<ImageList
+	displayImage={officeImage}
+	items={solutions}
+	title="Empowering Businesses with Strategic Road Maps"
+/>
 
 <section class="about__section" data-flex="no">
 	<div class="about__title">
@@ -176,64 +137,6 @@
 	.about__section[data-padding='no'] {
 		padding: 0 0;
 		margin-top: 0;
-	}
-
-	.about__services__list {
-		margin-top: 3rem;
-		& > article:not(:last-child) {
-			margin-bottom: 2rem;
-		}
-	}
-
-	.about__services__service {
-		padding-left: 3rem;
-		&-description {
-			color: $grey-color-1;
-			margin-top: 0.8rem;
-			line-height: 1.7rem;
-		}
-
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			padding-left: 1.5rem;
-		}
-	}
-
-	.about__services__service-title {
-		font-size: $text-h3;
-		font-weight: 400;
-		cursor: pointer;
-		transition: 0.4s;
-		&:hover {
-			color: $primary-color;
-		}
-		&:before {
-			content: '+';
-			color: $primary-color;
-			padding-right: 1rem;
-		}
-
-		&[data-active='true'] {
-			&:before {
-				content: '-';
-			}
-		}
-
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			font-size: $text-h5;
-		}
-	}
-
-	.about__services__image-container {
-		height: 28rem;
-		background: $grey-color-1;
-		border-radius: 0.5rem;
-		max-width: 40rem;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			border-radius: inherit;
-		}
 	}
 
 	.about__why__image-container {
