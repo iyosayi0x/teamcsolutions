@@ -1,36 +1,15 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import Icon from '@iconify/svelte';
 	import Service from './Service.svelte';
 	import imageCloud from '$lib/images/cloud.png';
 	import imageRobot from '$lib/images/robot-shield.png';
 	import fingerPrint from '$lib/images/finger-print.png';
 
-	import techImage from '$lib/images/tech-comp.jpg';
-	import serverImage from '$lib/images/server-comp.jpg';
-	import cyberImage from '$lib/images/robot-shield.png';
+	import Banner from './Banner.svelte';
+	import { services } from '$lib/data/services';
 
+	const data = Object.values(services);
 	let currentDataIndex = 0;
-	const data = [
-		{
-			mainText: 'Cutting-Edge Cloud, Cybersecurity, and AI Solutions.',
-			description:
-				'Cloud, cybersecurity, and AI solutions for success and secure digital transformation.',
-			image: techImage
-		},
-		{
-			mainText: 'Transform Your Business with Scalable Cloud Services.',
-			description: 'Innovative cloud solutions for the future of digital transformation.',
-			image: serverImage
-		},
-		{
-			mainText: 'Stay Ahead of Cybersecurity Threats with AI-Driven Solutions.',
-			description: 'AI-powered solutions to safeguard and empower your business.',
-			image: cyberImage
-		}
-	];
-
-	let interval: ReturnType<typeof setInterval> | null;
 
 	// Function to preload images
 	function preloadImages() {
@@ -39,6 +18,9 @@
 			img.src = item.image;
 		});
 	}
+
+	// life cycle
+	let interval: ReturnType<typeof setInterval> | null;
 
 	onMount(() => {
 		// Preload all images when the component mounts
@@ -64,18 +46,13 @@
 
 {#each data as bannerData, i (i)}
 	{#if i === currentDataIndex}
-		<section
-			class="home__banner-container"
-			style={`background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(173, 216, 230, 0) 70%), url(${bannerData.image})`}
-		>
-			<div class="home__banner-cta">
-				<h1 class="home__banner-cta__text">{bannerData.mainText}</h1>
-				<p class="home__banner-cta__desc">{bannerData.description}</p>
-				<a class="white-btn" href="/contact"
-					>Contact Us <Icon icon="ri:arrow-right-line" inline={true} /></a
-				>
-			</div>
-		</section>
+		<Banner
+			banner={{
+				image: bannerData.image,
+				description: bannerData.description,
+				mainText: bannerData.mainText
+			}}
+		/>
 	{/if}
 {/each}
 
@@ -121,56 +98,6 @@
 
 <style lang="scss">
 	@use '../css_lib' as *;
-	@use '../css_lib' as *;
-
-	.home__banner-container {
-		width: 100%;
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		transition: background-image 1.5s ease-in-out; // Smooth transition for the background image
-		padding: 10rem;
-		height: 40rem;
-		@include flexbox(flex-start, center);
-
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			padding: 2rem 1rem;
-			height: 30rem;
-		}
-	}
-
-	.home__banner-cta {
-		@include flexbox(flex-start, flex-start);
-
-		& {
-			width: 80%;
-			max-width: 100rem;
-			flex-direction: column;
-			gap: 2rem;
-			z-index: 1;
-			@media screen and (max-width: $tab-phone-breakpoint) {
-				width: 100%;
-			}
-		}
-	}
-
-	.home__banner-cta__text {
-		font-size: calc($text-h1 * 1.4);
-		color: white;
-		transition: opacity 1s ease; // Smooth transition for text opacity
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			font-size: $text-h2;
-		}
-	}
-
-	.home__banner-cta__desc {
-		font-size: $text-h4;
-		color: white;
-		transition: opacity 1s ease; // Smooth transition for description opacity
-		@media screen and (max-width: $tab-phone-breakpoint) {
-			font-size: $text-h6;
-		}
-	}
 
 	.home__service-list {
 		@include flexbox(flex-start, center);

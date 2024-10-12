@@ -13,8 +13,9 @@
 		<ul class="header__nav-list">
 			<li data-active={$page.url.pathname === '/'}><a href="/">Home</a></li>
 			<li class="header__nav__services-container" data-active={isActive}>
-				Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size:20px" />
-
+				<div class="header__nav__services-dropdown">
+					Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size:20px" />
+				</div>
 				<div class="header__nav__services">
 					<ServiceNav />
 				</div>
@@ -83,6 +84,14 @@
 				opacity: 1; /* Show the element */
 				visibility: visible; /* Make the element visible */
 			}
+		}
+	}
+
+	.header__nav__services-dropdown {
+		transition: 0.4s;
+		cursor: pointer;
+		&:hover {
+			color: $primary-color;
 		}
 	}
 </style>

@@ -1,41 +1,47 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import ServiceItem from './ServiceItem.svelte';
-	import ServiceTitle from './ServiceTitle.svelte';
+	import Banner from '../Banner.svelte';
+
+	export let bannerConfig: { mainText: string; description: string; image: string };
+	export let features: { title: string; description: string; icon: string }[];
 </script>
 
-<section class="service">
-	<ServiceTitle
-		service_title="Machine Learning"
-		service_description="Engage our experts to develop and train custom machine learning models that solve complex problems, optimize processes, and drive innovation."
-		service_id="ai-ml"
-	/>
+<Banner banner={bannerConfig} />
 
+<div class="banner__outline">
+	Do you have a project we can help with?
+	<a href="/contact" class="banner__btn"
+		>Contact Us <Icon icon="ri:arrow-right-line" inline={true} /></a
+	>
+</div>
+
+<section class="service">
 	<div class="service__items">
-		<ServiceItem
-			title="Custom Model Development"
-			description="Design machine learning models tailored to your business, driving accurate predictions and insightful decision-making."
-			icon="carbon:machine-learning"
-		/>
-		<ServiceItem
-			title="Model Training & Tuning"
-			description="Fine-tune your machine learning models for enhanced accuracy and performance, ensuring optimal results."
-			icon="carbon:chart-line"
-			highlighted={true}
-		/>
-		<ServiceItem
-			title="Automation & Integration"
-			description="Integrate machine learning solutions into your workflows, automating processes and boosting operational efficiency."
-			icon="carbon:automatic"
-		/>
+		{#each features as feature}
+			<ServiceItem title={feature.title} description={feature.description} icon={feature.icon} />
+		{/each}
 	</div>
 
 	<div class="service__button">
-		<a href="tel:info@tecmcsolutions.com" class="primary-btn">Get A Quote</a>
+		<a href="/contact" class="primary-btn">Contact Us Now</a>
 	</div>
 </section>
 
 <style lang="scss">
 	@use '../../css_lib.scss' as *;
+
+	.service__banner {
+		height: 50rem;
+		width: 100%;
+		background: rgb(145, 173, 197);
+		margin-top: -10rem;
+		img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+		}
+	}
 
 	.service {
 		@include useBlockPadding(4rem);
@@ -55,5 +61,33 @@
 	.service__button {
 		margin-top: 2rem;
 		text-align: right;
+	}
+
+	.banner__outline {
+		background: $primary-color;
+		color: white;
+		font-size: $text-h3;
+		font-weight: 500;
+		padding: 4rem 2rem;
+		text-align: center;
+		position: relative;
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			font-size: $text-h6;
+			padding: 3rem 1rem;
+		}
+	}
+
+	.banner__btn {
+		position: absolute;
+		bottom: -1rem;
+		text-decoration: none;
+		color: white;
+		background: darken($primary-color, 40%);
+		font-size: $text-h6;
+		padding: 0.5rem 2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 0.2rem;
 	}
 </style>

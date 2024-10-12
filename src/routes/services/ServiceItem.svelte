@@ -19,13 +19,14 @@
 	@use '../../css_lib' as *;
 	.service__item {
 		background: white;
-		box-shadow: 2px 2px 10px 1px #0000001a;
-		padding: 3rem 1rem 1rem 1rem;
+		box-shadow: 2px 3px 30px 1px #0000001a;
+		padding: 2.5rem 1rem 4rem 1rem;
 		position: relative;
 		align-self: stretch;
 		border-radius: 0.5rem;
 		color: black;
 		transition: 0.4s;
+		text-align: center;
 
 		&:hover {
 			transform: scale(1.05);
@@ -57,18 +58,4 @@
 		margin-top: 1rem;
 		line-height: 1.6rem;
 	}
-
-	// .service__item[data-highlighted=true]{
-	//     background: $primary-color;
-	//     color: white;
-
-	//     .service__item__description {
-	//         color: white;
-	//     }
-
-	//     .service__item__icon-wrapper {
-	//         background: white;
-	//         color: $primary-color;
-	//     }
-	// }
 </style>
