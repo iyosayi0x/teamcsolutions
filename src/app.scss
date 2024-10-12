@@ -39,6 +39,11 @@ html {
 	color: white;
 }
 
+.inactive-btn { 
+	@extend .primary-btn;
+	background: #b5b5b5;
+}
+
 .white-btn {
 	@extend .btn;
 	background: white;

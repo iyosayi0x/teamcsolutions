@@ -4,6 +4,9 @@
 	import manImg from '$lib/images/pexels-italo-melo-881954-2379004.jpg';
 	import InputField from './InputField.svelte';
 
+	let isLoading = false;
+	let showSuccessText = false;
+
 	const roleOptions = [
 		'IT Manager/Director',
 		'Chief Technology Officer (CTO)',
@@ -24,6 +27,34 @@
 		'Entrepreneur/Startup Founder',
 		'Student/Intern'
 	];
+
+	const handleFormSubmit = async (e: Event) => {
+		e.preventDefault();
+		if (isLoading || showSuccessText) return;
+
+		const contactForm = document.querySelector('#contactForm') as HTMLFormElement;
+		const formData = new FormData(contactForm);
+		console.log(formData);
+
+		try {
+			isLoading = true;
+			await fetch(contactForm.action, {
+				method: contactForm.method,
+				body: formData,
+				headers: {
+					Accept: 'application/json'
+				}
+			});
+		} catch (err) {
+			console.log(err);
+		} finally {
+			isLoading = false;
+			showSuccessText = true;
+			setTimeout(() => {
+				showSuccessText = false;
+			}, 10000);
+		}
+	};
 </script>
 
 <div class="contact">
@@ -67,19 +98,25 @@
 				</div>
 			</div>
 
-			<form class="contact__form" method="POST" action="https://formspree.io/f/myzyyzla">
+			<form
+				class="contact__form"
+				method="POST"
+				on:submit={handleFormSubmit}
+				id="contactForm"
+				action="https://formspree.io/f/myzyyzla"
+			>
 				<!-- --- main form ---  -->
 				<section class="contact__form-main">
 					<div class="contact__form__field__wrapper" data-type="dual">
 						<InputField
 							fieldName="contact__firstName"
 							label="First Name"
-							inputField={{ placeholder: 'Enter your first name', name: 'f-name' }}
+							inputField={{ placeholder: 'Enter your first name', name: 'fname' }}
 						/>
 						<InputField
 							fieldName="contact__lastName"
 							label="Last Name"
-							inputField={{ placeholder: 'Enter your last name', name: 'l-name' }}
+							inputField={{ placeholder: 'Enter your last name', name: 'lname' }}
 						/>
 					</div>
 
@@ -122,7 +159,17 @@
 
 				<!-- ---- action button ---  -->
 				<section class="contact__form__btn-container">
-					<button class="primary-btn">Send</button>
+					<button class={isLoading ? 'inactive-btn' : 'primary-btn'}>
+						{#if isLoading}
+							<div class="loading-icon">
+								<Icon icon="gg:spinner-two" inline={true} />
+							</div>
+						{:else if showSuccessText}
+							Form Submitted <Icon icon="gg:check-o" inline={true} />
+						{:else}
+							Submit
+						{/if}
+					</button>
 				</section>
 			</form>
 		</div>
@@ -245,5 +292,22 @@
 		font-size: $text-small;
 		line-height: 1.7rem;
 		color: rgb(227, 224, 224);
+	}
+
+	.loading-icon {
+		font-size: 20px;
+		animation: rotate 0.3s linear infinite;
+		width: fit-content;
+		height: fit-content;
+		margin: 0 auto;
+	}
+
+	@keyframes rotate {
+		from {
+			transform: rotatez(0deg);
+		}
+		to {
+			transform: rotatez(360deg);
+		}
 	}
 </style>
