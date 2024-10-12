@@ -67,7 +67,7 @@
 				</div>
 			</div>
 
-			<form class="contact__form" method="post">
+			<form class="contact__form" method="POST" action="https://formspree.io/f/myzyyzla">
 				<!-- --- main form ---  -->
 				<section class="contact__form-main">
 					<div class="contact__form__field__wrapper" data-type="dual">

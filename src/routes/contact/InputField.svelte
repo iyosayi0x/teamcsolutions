@@ -10,7 +10,7 @@
 	export let options: { value: string; name?: string }[] = [];
 	export let fieldType: 'default' | 'textarea' | 'phoneNumber' | 'dropdown' = 'default';
 
-	let selectedCountry: CountryCode | null = 'HU';
+	let selectedCountry: CountryCode | null = 'US';
 	let value: string | null = '';
 	let valid = true;
 	let detailedValue: DetailedValue | null = null;
@@ -72,12 +72,12 @@
 	<div class="field__input-wrapper" data-type={fieldType}>
 		<!-- ---- default text field ---  -->
 		{#if fieldType === 'default'}
-			<input type="text" name={fieldName} class="field__input" {...inputField} />
+			<input type="text" name={fieldName} class="field__input" {...inputField} required={true} />
 			<!-- ---- end of default text field ---  -->
 
 			<!-- --- textarea field ---  -->
 		{:else if fieldType === 'textarea'}
-			<textarea {...inputField} class="field__textarea" />
+			<textarea {...inputField} class="field__textarea" required={true} />
 			<!-- --- end of text areat field ---  -->
 
 			<!-- ---- phone number field ---  -->
@@ -87,6 +87,7 @@
 				aria-label="Default select example"
 				name="Country"
 				bind:value={selectedCountry}
+				required={true}
 			>
 				<option value={null} hidden={selectedCountry !== null}>Please select</option>
 				{#each normalizedCountries as currentCountry (currentCountry.id)}
@@ -105,6 +106,8 @@
 				bind:valid
 				bind:detailedValue
 				class="-field__phone"
+				required={true}
+				name={inputField.name}
 			/>
 
 			<!-- --- drop down field ---  -->
@@ -116,6 +119,7 @@
 				class="field__input"
 				placeholder={inputField.placeholder}
 				bind:value
+				required={true}
 			/>
 			<span>
 				<Icon icon="ri:arrow-drop-down-line" style="font-size:30px" inline={true} />
