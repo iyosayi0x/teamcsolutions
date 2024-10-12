@@ -39,6 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"gsap": "^3.12.5",
 		"svelte-tel-input": "^3.5.1"
 	},
 	"license": "UNLICENSED"

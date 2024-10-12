@@ -1,6 +1,21 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
+	import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+
 	export let service: IServiceConfig;
 	export let reversed = false;
+
+	onMount(() => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		const scroller = document.body;
+
+		ScrollTrigger.defaults({
+			scroller: scroller,
+			pinType: 'transform'
+		});
+	});
 </script>
 
 <div class="service" data-reversed={reversed}>
