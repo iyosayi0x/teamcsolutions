@@ -1217,6 +1217,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+libphonenumber-js@1.10.43:
+  version "1.10.43"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.10.43.tgz#ef8b697c70a160142a653fc92931852c403a656f"
+  integrity sha512-M/iPACJGsTvEy8QmUY4K0SoIFB71X2j7y2JvUMYzUXUxCNmiU+NTfHdz7gt+dC48BVfBzZi2oO6s9TDGllCfxA==
+
 lilconfig@^2.0.5:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"
@@ -1754,6 +1759,13 @@ svelte-hmr@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.16.0.tgz#9f345b7d1c1662f1613747ed7e82507e376c1716"
   integrity sha512-Gyc7cOS3VJzLlfj7wKS0ZnzDVdv3Pn2IuVeJPk9m2skfhcu5bq3wtIZyQGggr7/Iim5rH5cncyQft/kRLupcnA==
+
+svelte-tel-input@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/svelte-tel-input/-/svelte-tel-input-3.5.1.tgz#a91c60c3bc972b9d7ec5f8eae8eb839183d4cf10"
+  integrity sha512-kMdCjvWPTOJyRFG2hgYCa8JbuUur96zPBaTfGGoXN1XyktSFVY7OqqQxWRK836pK3JyyXaTjJSviDur8jX5H+A==
+  dependencies:
+    libphonenumber-js "1.10.43"
 
 svelte@^4.2.7:
   version "4.2.19"

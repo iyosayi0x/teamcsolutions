@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { fade } from 'svelte/transition';
+	import { TelInput, normalizedCountries } from 'svelte-tel-input';
+	import type { DetailedValue, CountryCode, E164Number } from 'svelte-tel-input/types';
 
 	export let label: string | undefined;
 	export let fieldName: string | undefined;
@@ -8,6 +10,13 @@
 	export let options: { value: string; name?: string }[] = [];
 	export let onSelectOption: (args: string) => void = (args) => {};
 	export let fieldType: 'default' | 'textarea' | 'phoneNumber' | 'dropdown' = 'default';
+
+	let selectedCountry: CountryCode | null = 'HU';
+	let value: E164Number | null = '+36301234567';
+
+	let valid = true;
+
+	let detailedValue: DetailedValue | null = null;
 </script>
 
 <svelte:head>
@@ -66,14 +75,30 @@
 
 			<!-- ---- phone number field ---  -->
 		{:else if fieldType === 'phoneNumber'}
-			<div class="field__phoneNumber__codes">
-				<span>
-					<Icon icon="ri:arrow-drop-down-line" style="font-size:30px" inline={true} />
-				</span>
-				<input type="text" readonly={true} />
-			</div>
-			<input type="number" {...inputField} />
-			<!-- ---- end of phone number field ---  -->
+			<select
+				class="country-select {!valid ? 'invalid' : ''}"
+				aria-label="Default select example"
+				name="Country"
+				bind:value={selectedCountry}
+			>
+				<option value={null} hidden={selectedCountry !== null}>Please select</option>
+				{#each normalizedCountries as currentCountry (currentCountry.id)}
+					<option
+						value={currentCountry.iso2}
+						selected={currentCountry.iso2 === selectedCountry}
+						aria-selected={currentCountry.iso2 === selectedCountry}
+					>
+						{currentCountry.iso2} (+{currentCountry.dialCode})
+					</option>
+				{/each}
+			</select>
+			<TelInput
+				bind:country={selectedCountry}
+				bind:value
+				bind:valid
+				bind:detailedValue
+				class="-field__phone"
+			/>
 
 			<!-- --- drop down field ---  -->
 		{:else if fieldType === 'dropdown'}
@@ -143,44 +168,6 @@
 		resize: none;
 	}
 
-	// phone number field
-	.field__input-wrapper[data-type='phoneNumber'] {
-		@include flexbox(flex-start, center);
-		background: none;
-		gap: 1rem;
-
-		& > input:last-child {
-			flex: 1;
-			@extend .field__input;
-			background: #f6f6f6;
-			border-radius: 0.5rem;
-		}
-	}
-
-	.field__phoneNumber__codes {
-		@include flexbox(space-between, center);
-		background: #f6f6f6;
-		border-radius: 0.5rem;
-		padding: 0 0.5rem;
-
-		input {
-			@extend .field__input;
-			width: 4rem;
-		}
-
-		span {
-			transition: 0.4s;
-			display: grid;
-			place-items: center;
-		}
-	}
-
-	.field__phoneNumber__codes:focus-within {
-		span {
-			transform: rotateZ(180deg);
-		}
-	}
-
 	// drop down
 	.options-container {
 		position: absolute;
@@ -205,6 +192,18 @@
 			&:hover {
 				color: $primary-color;
 			}
+		}
+	}
+
+	.field__input-wrapper[data-type='phoneNumber'] {
+		background: none;
+		gap: 1rem;
+		@include flexbox(space-between, center);
+		select {
+			@extend .field__input;
+			border-radius: 0.5rem;
+			background: #f6f6f6;
+			width: 7rem;
 		}
 	}
 

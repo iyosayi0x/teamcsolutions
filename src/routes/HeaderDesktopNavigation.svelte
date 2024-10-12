@@ -71,7 +71,7 @@
 		transition:
 			opacity 0.3s ease,
 			visibility 0.3s ease;
-		z-index: 1;
+		z-index: 10;
 	}
 
 	.header__nav__services-container {
