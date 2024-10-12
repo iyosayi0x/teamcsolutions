@@ -39,7 +39,7 @@ html {
 	color: white;
 }
 
-.inactive-btn { 
+.inactive-btn {
 	@extend .primary-btn;
 	background: #b5b5b5;
 }
@@ -63,20 +63,19 @@ h1 {
 	font-size: $text-h1;
 }
 
-
-.desktop-only { 
-	@media screen and (max-width:$tab-phone-breakpoint){
+.desktop-only {
+	@media screen and (max-width: $tab-phone-breakpoint) {
 		display: none;
 	}
 }
 
-.mobile-only { 
-	@media screen and (min-width:$tab-phone-breakpoint){
+.mobile-only {
+	@media screen and (min-width: $tab-phone-breakpoint) {
 		display: none;
 	}
 }
 
-.-field__phone { 
+.-field__phone {
 	flex: 1;
 	border: none;
 	background: none;

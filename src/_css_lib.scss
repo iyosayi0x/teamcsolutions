@@ -12,27 +12,26 @@ $grey-color-2: #6f6f6f;
 $page-block-padding: 7.5rem;
 $page-block-padding-mobile: 1rem;
 
-$tab-phone-breakpoint:821px;
+$tab-phone-breakpoint: 821px;
 
 @mixin flexbox(
-  $justify-content: space-between,
-  $align-items: center,
-  $flex-direction: row,
-  $flex-wrap: nowrap
+	$justify-content: space-between,
+	$align-items: center,
+	$flex-direction: row,
+	$flex-wrap: nowrap
 ) {
-  display: flex;
-  justify-content: $justify-content;
-  align-items: $align-items;
-  flex-direction: $flex-direction;
-  flex-wrap: $flex-wrap;
+	display: flex;
+	justify-content: $justify-content;
+	align-items: $align-items;
+	flex-direction: $flex-direction;
+	flex-wrap: $flex-wrap;
 }
 
-@mixin useBlockPadding($inline-padding:2rem){
+@mixin useBlockPadding($inline-padding: 2rem) {
 	padding: $inline-padding $page-block-padding;
-	@media screen and (max-width:$tab-phone-breakpoint) { 
+	@media screen and (max-width: $tab-phone-breakpoint) {
 		padding: $inline-padding $page-block-padding-mobile;
 	}
-
 }
 
 $text-h1: 2.5rem;
@@ -43,5 +42,3 @@ $text-h5: 1.25rem;
 $text-h6: 1rem;
 $text-regular: 1rem;
 $text-small: 0.875rem;
-
-

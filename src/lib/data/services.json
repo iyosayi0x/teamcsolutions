@@ -3,18 +3,18 @@
 		"title": "Cloud Service",
 		"description": "Scalable cloud infrastructure.",
 		"icon": "material-symbols:cloud-outline",
-		"link": "/services#cloud"
+		"link": "/services/cloud"
 	},
 	{
 		"title": "Cyber Security",
 		"description": "Fortify your digital defenses.",
 		"icon": "simple-icons:cyberdefenders",
-		"link": "/services#cyber-security"
+		"link": "/services/cyber-security"
 	},
 	{
 		"title": "Machine Learning",
 		"description": "Custom ML solutions for innovation.",
 		"icon": "carbon:machine-learning",
-		"link": "/services#ai-ml"
+		"link": "/services/ai-ml"
 	}
 ]

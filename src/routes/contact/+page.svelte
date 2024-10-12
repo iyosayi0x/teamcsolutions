@@ -57,6 +57,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Contact Us | Team Consulting Solutions</title>
+</svelte:head>
+
 <div class="contact">
 	<section class="contact__banner">
 		<img src={manImg} alt="contact display banner" class="contact__banner__image" />

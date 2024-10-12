@@ -2,6 +2,9 @@
 	import ServiceNav from './ServiceNav.svelte';
 	import Icon from '@iconify/svelte';
 	import { page } from '$app/stores';
+	import serviceJson from '$lib/data/services.json';
+
+	$: isActive = serviceJson.map((service) => service.link).includes($page.url.pathname || '');
 </script>
 
 <!-- --- navigation ---  -->
@@ -9,10 +12,9 @@
 	<nav>
 		<ul class="header__nav-list">
 			<li data-active={$page.url.pathname === '/'}><a href="/">Home</a></li>
-			<li class="header__nav__services-container" data-active={$page.url.pathname === '/services'}>
-				<a href="/services"
-					>Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size:20px" />
-				</a>
+			<li class="header__nav__services-container" data-active={isActive}>
+				Services <Icon icon="ri:arrow-drop-down-line" inline={true} style="font-size:20px" />
+
 				<div class="header__nav__services">
 					<ServiceNav />
 				</div>

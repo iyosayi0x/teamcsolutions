@@ -26,47 +26,6 @@
 	};
 </script>
 
-<svelte:head>
-	<title>Contact Us | Team Consulting Solutions</title>
-
-	<!-- Meta Tags for SEO -->
-	<meta
-		name="description"
-		content="Get in touch with Team Consulting Solutions for expert AI, cybersecurity, and cloud consulting services. Contact us for more information or to request a consultation."
-	/>
-	<meta
-		name="keywords"
-		content="Contact, Team Consulting Solutions, AI consulting, Cybersecurity services, Cloud solutions, Technical consulting"
-	/>
-	<meta name="robots" content="index, follow" />
-	<meta name="author" content="Team Consulting Solutions" />
-
-	<!-- Open Graph Meta Tags for Social Sharing -->
-	<meta property="og:title" content="Contact Team Consulting Solutions" />
-	<meta
-		property="og:description"
-		content="Reach out to Team Consulting Solutions for technical solutions in AI, cybersecurity, and cloud services."
-	/>
-	<meta property="og:type" content="website" />
-	<!-- <meta property="og:url" content="https://www.yourwebsite.com/contact" />
-	<meta property="og:image" content="https://www.yourwebsite.com/images/contact-us-social.jpg" /> -->
-
-	<!-- Twitter Card Meta Tags -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Contact Team Consulting Solutions" />
-	<meta
-		name="twitter:description"
-		content="Get in touch for AI, cybersecurity, and cloud consulting services."
-	/>
-	<!-- <meta name="twitter:image" content="https://www.yourwebsite.com/images/contact-us-twitter.jpg" /> -->
-
-	<!-- Viewport Meta Tag for Mobile Responsiveness -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<!-- Favicon -->
-	<!-- <link rel="icon" href="/favicon.ico" /> -->
-</svelte:head>
-
 <div class="field">
 	<label for={fieldName} class="field__label">{label}</label>
 	<div class="field__input-wrapper" data-type={fieldType}>

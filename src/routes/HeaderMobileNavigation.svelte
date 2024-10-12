@@ -3,6 +3,7 @@
 	import Icon from '@iconify/svelte';
 	import { slide, fade } from 'svelte/transition';
 	import serviceData from '$lib/data/services.json';
+	import serviceJson from '$lib/data/services.json';
 
 	// functions
 	let navOpen = false;
@@ -14,6 +15,8 @@
 	page.subscribe((args) => {
 		navOpen = false;
 	});
+
+	$: isActive = serviceJson.map((service) => service.link).includes($page.url.pathname || '');
 </script>
 
 <div class="mobile-only">
@@ -37,7 +40,7 @@
 				<!-- --- home default ---  -->
 				<li data-active={$page.url.pathname === '/'}><a href="/">Home</a></li>
 
-				<li data-active={$page.url.pathname === '/services'}>
+				<li data-active={isActive}>
 					<a href="/services">Services</a>
 
 					<!-- --- services ---  -->

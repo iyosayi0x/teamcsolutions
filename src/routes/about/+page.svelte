@@ -102,7 +102,7 @@
 				</div>
 			</div>
 			<div>
-				<a href="/services" class="primary-btn">View All Our Services</a>
+				<a href="/contact" class="primary-btn">Contact Us</a>
 			</div>
 		</section>
 	</div>

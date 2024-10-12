@@ -1,6 +1,7 @@
 <script>
 	import FullLogo from './FullLogo.svelte';
 	import FooterContactUs from './FooterContactUs.svelte';
+	import serviceJson from '$lib/data/services.json';
 </script>
 
 <FooterContactUs />
@@ -26,10 +27,6 @@
 						<a href="/">Home</a>
 					</li>
 					<li>
-						<a href="/services">Services</a>
-					</li>
-
-					<li>
 						<a href="/about">About Us</a>
 					</li>
 				</ul>
@@ -38,16 +35,11 @@
 			<section>
 				<div class="footer__section__title">SERVICES</div>
 				<ul class="footer__section__links">
-					<li>
-						<a href="/services#cyber-security">Cybersecurity</a>
-					</li>
-					<li>
-						<a href="/services#cloud">Cloud Solutions</a>
-					</li>
-
-					<li>
-						<a href="/services#ai-ml">AI And Machine Learning</a>
-					</li>
+					{#each serviceJson as service}
+						<li>
+							<a href={service.link}>{service.title}</a>
+						</li>
+					{/each}
 				</ul>
 			</section>
 
