@@ -67,19 +67,19 @@
 				</div>
 			</div>
 
-			<form class="contact__form">
+			<form class="contact__form" method="post">
 				<!-- --- main form ---  -->
 				<section class="contact__form-main">
 					<div class="contact__form__field__wrapper" data-type="dual">
 						<InputField
 							fieldName="contact__firstName"
 							label="First Name"
-							inputField={{ placeholder: 'Enter your first name' }}
+							inputField={{ placeholder: 'Enter your first name', name: 'f-name' }}
 						/>
 						<InputField
 							fieldName="contact__lastName"
 							label="Last Name"
-							inputField={{ placeholder: 'Enter your last name' }}
+							inputField={{ placeholder: 'Enter your last name', name: 'l-name' }}
 						/>
 					</div>
 
@@ -87,7 +87,7 @@
 						<InputField
 							fieldName="contact__email"
 							label="Email"
-							inputField={{ placeholder: 'Enter your email', type: 'email' }}
+							inputField={{ placeholder: 'Enter your email', type: 'email', name: 'email' }}
 						/>
 					</div>
 
@@ -96,7 +96,7 @@
 							fieldName="contact__firstName"
 							label="Phone Number"
 							fieldType="phoneNumber"
-							inputField={{ placeholder: 'Enter your phone number' }}
+							inputField={{ placeholder: 'Enter your phone number', name: 'phone' }}
 						/>
 					</div>
 
@@ -105,11 +105,8 @@
 							fieldName="contact__role"
 							label="Role"
 							options={roleOptions.map((option) => ({ value: option }))}
-							onSelectOption={(args) => {
-								console.log(args);
-							}}
 							fieldType="dropdown"
-							inputField={{ placeholder: 'Select an option' }}
+							inputField={{ placeholder: 'Select an option', name: 'role' }}
 						/>
 					</div>
 
@@ -118,7 +115,7 @@
 							fieldName="contact__message__content"
 							label="Message"
 							fieldType="textarea"
-							inputField={{ placeholder: 'Enter your message' }}
+							inputField={{ placeholder: 'Enter your message', name: 'message' }}
 						/>
 					</div>
 				</section>

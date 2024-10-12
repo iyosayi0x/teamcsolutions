@@ -1,4 +1,5 @@
-declare interface InputFieldProps { 
-    placeholder?:string
-    type?:string
+declare interface InputFieldProps {
+	placeholder?: string;
+	type?: string;
+	name?: string;
 }

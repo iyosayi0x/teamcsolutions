@@ -2,21 +2,28 @@
 	import Icon from '@iconify/svelte';
 	import { fade } from 'svelte/transition';
 	import { TelInput, normalizedCountries } from 'svelte-tel-input';
-	import type { DetailedValue, CountryCode, E164Number } from 'svelte-tel-input/types';
+	import type { DetailedValue, CountryCode } from 'svelte-tel-input/types';
 
 	export let label: string | undefined;
 	export let fieldName: string | undefined;
 	export let inputField: InputFieldProps = {};
 	export let options: { value: string; name?: string }[] = [];
-	export let onSelectOption: (args: string) => void = (args) => {};
 	export let fieldType: 'default' | 'textarea' | 'phoneNumber' | 'dropdown' = 'default';
 
 	let selectedCountry: CountryCode | null = 'HU';
-	let value: E164Number | null = '+36301234567';
-
+	let value: string | null = '';
 	let valid = true;
-
 	let detailedValue: DetailedValue | null = null;
+
+	const onSelectOption = (option: string) => {
+		value = option;
+		const pbutton = document.querySelector(
+			`.placeholder-blur-${inputField.name}`
+		) as HTMLDivElement;
+		pbutton.focus();
+
+		console.log(pbutton);
+	};
 </script>
 
 <svelte:head>
@@ -103,11 +110,12 @@
 			<!-- --- drop down field ---  -->
 		{:else if fieldType === 'dropdown'}
 			<input
+				{...inputField}
 				type="text"
 				readonly={true}
-				{...inputField}
 				class="field__input"
 				placeholder={inputField.placeholder}
+				bind:value
 			/>
 			<span>
 				<Icon icon="ri:arrow-drop-down-line" style="font-size:30px" inline={true} />
@@ -129,6 +137,8 @@
 		{/if}
 	</div>
 </div>
+
+<div class="placeholder-blur-{inputField.name}" tabindex="0" role="button"></div>
 
 <style lang="scss">
 	@use '../../css_lib' as *;
