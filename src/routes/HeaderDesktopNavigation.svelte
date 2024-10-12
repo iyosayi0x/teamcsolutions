@@ -24,7 +24,9 @@
 
 <!-- --- contact ---  -->
 <section class="desktop-only">
-	<a href="/contact" class="secondary-btn">Contact Us</a>
+	<a href="/contact" class="secondary-btn"
+		>Contact Us <Icon icon="ri:arrow-right-line" inline={true} /></a
+	>
 </section>
 
 <style lang="scss">

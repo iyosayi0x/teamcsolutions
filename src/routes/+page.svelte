@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	// import { cubicOut } from 'svelte/easing';
-	// import { fade } from 'svelte/transition';
+	import Icon from '@iconify/svelte';
 	import Service from './Service.svelte';
 	import imageCloud from '$lib/images/cloud.png';
 	import imageRobot from '$lib/images/robot-shield.png';
@@ -72,7 +71,9 @@
 			<div class="home__banner-cta">
 				<h1 class="home__banner-cta__text">{bannerData.mainText}</h1>
 				<p class="home__banner-cta__desc">{bannerData.description}</p>
-				<a class="white-btn" href="/contact">Contact Us</a>
+				<a class="white-btn" href="/contact"
+					>Contact Us <Icon icon="ri:arrow-right-line" inline={true} /></a
+				>
 			</div>
 		</section>
 	{/if}
@@ -123,28 +124,32 @@
 	@use '../css_lib' as *;
 
 	.home__banner-container {
-		height: fit-content;
-		min-height: 26rem;
 		width: 100%;
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
 		transition: background-image 1.5s ease-in-out; // Smooth transition for the background image
+		padding: 10rem;
+		height: 40rem;
+		@include flexbox(flex-start, center);
+
+		@media screen and (max-width: $tab-phone-breakpoint) {
+			padding: 2rem 1rem;
+			height: 30rem;
+		}
 	}
 
 	.home__banner-cta {
 		@include flexbox(flex-start, flex-start);
 
 		& {
-			width: 60%;
-			max-width: 80rem;
-			padding: 10rem;
+			width: 80%;
+			max-width: 100rem;
 			flex-direction: column;
 			gap: 2rem;
 			z-index: 1;
 			@media screen and (max-width: $tab-phone-breakpoint) {
 				width: 100%;
-				padding: 2rem 1rem;
 			}
 		}
 	}

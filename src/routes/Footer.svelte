@@ -1,16 +1,15 @@
 <script>
-	import logo from '$lib/assets/logo.png';
+	import FullLogo from './FullLogo.svelte';
+	import FooterContactUs from './FooterContactUs.svelte';
 </script>
 
+<FooterContactUs />
 <footer class="footer">
 	<section class="footer__top">
 		<section>
-			<div class="footer__logo">
-				<img alt="logo" src={logo} width="40" />
-				<div class="footer__logo__name">Team Consulting Solutions</div>
-			</div>
+			<FullLogo />
 
-			<div>
+			<div class="footer__cta__wrapper">
 				<p class="footer__cta">
 					Elevate Your Business with Cutting-Edge <span class="footer__cta-services"
 						>Cloud, Cybersecurity, and AI</span
@@ -81,21 +80,6 @@
 		border-top: 1px solid rgba($grey-color-1, 0.4);
 	}
 
-	.footer__logo {
-		@include flexbox(flex-start, center);
-		& {
-			gap: 1rem;
-			margin-bottom: 2rem;
-
-			@media screen and (max-width: $tab-phone-breakpoint) {
-				margin-bottom: 1rem;
-			}
-		}
-	}
-	.footer__logo__name {
-		color: $grey-color-1;
-		font-weight: 500;
-	}
 	.footer__top {
 		margin-bottom: 2rem;
 		@include useBlockPadding(2.5rem);
@@ -116,6 +100,9 @@
 		}
 	}
 
+	.footer__cta__wrapper {
+		margin-top: 1rem;
+	}
 	.footer__cta {
 		max-width: 40rem;
 		font-weight: 500;
