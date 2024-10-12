@@ -59,10 +59,9 @@
 
 	.header__nav__services {
 		position: absolute;
-		width: calc(100% - calc($page-block-padding * 3));
+		width: fit-content;
 		min-height: 5rem;
-		left: 50%;
-		top: 7rem;
+		top: 4rem;
 		transform: translateX(-50%);
 		background: white;
 		box-shadow:
