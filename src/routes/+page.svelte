@@ -64,7 +64,7 @@
 			description:
 				'Elevate your business with our comprehensive cloud solutions. Designed to seamlessly scale with your growing needs, our services optimize efficiency and streamline operations. From data storage and management to advanced analytics and collaboration tools, we provide the flexible infrastructure to drive innovation and success.',
 			image: imageCloud,
-			link: ''
+			link: '/services/cloud'
 		}}
 	>
 		Scalable, and efficient <span class="home__service__highlighted">Cloud Services</span>
@@ -76,7 +76,7 @@
 			description:
 				"Shield your digital assets with our robust cybersecurity solutions. Tailored to address the ever-evolving threat landscape, our comprehensive services safeguard your data and systems from breaches, malware, and other cyberattacks. From advanced threat detection and prevention to incident response and compliance, we provide the expertise and technology to protect your business's critical information.",
 			image: fingerPrint,
-			link: ''
+			link: '/services/cyber-security'
 		}}
 		reversed={true}
 	>
@@ -89,7 +89,7 @@
 			description:
 				'Unlock the power of your data with our cutting-edge AI and machine learning solutions. By harnessing the capabilities of advanced algorithms and predictive analytics, we transform raw data into actionable insights that drive innovation and strategic decision-making. From natural language processing and computer vision to predictive modeling and automation, our solutions empower businesses to gain a competitive edge and achieve unprecedented results.',
 			image: imageRobot,
-			link: ''
+			link: '/services/ai-ml'
 		}}
 	>
 		<span class="home__service__highlighted">Pioneering AI Solutions</span> for a Smarter Tomorrow.
