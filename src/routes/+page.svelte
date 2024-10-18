@@ -85,7 +85,7 @@
 
 	<Service
 		service={{
-			name: 'Ai & Machine Learning',
+			name: 'AI & Machine Learning',
 			description:
 				'Unlock the power of your data with our cutting-edge AI and machine learning solutions. By harnessing the capabilities of advanced algorithms and predictive analytics, we transform raw data into actionable insights that drive innovation and strategic decision-making. From natural language processing and computer vision to predictive modeling and automation, our solutions empower businesses to gain a competitive edge and achieve unprecedented results.',
 			image: imageRobot,
