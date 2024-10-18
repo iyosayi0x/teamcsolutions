@@ -6,7 +6,7 @@
 
 	let CIRCLE_RADIUS = 200;
 	let CIRCLE_ITEM_RADIUS = 35;
-	let centerText = ['Cloud Deployment', 'Machine Learning and AI', 'Cyber Security'];
+	let centerText = ['Cloud Deployment', 'ML and AI', 'Cyber Security'];
 	let activeCenterText = 0;
 
 	const iconDataSet = [
