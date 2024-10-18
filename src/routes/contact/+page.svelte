@@ -107,7 +107,7 @@
 				method="POST"
 				on:submit={handleFormSubmit}
 				id="contactForm"
-				action="https://formspree.io/f/myzyyzla"
+				action="https://formspree.io/f/mzzbblpw"
 			>
 				<!-- --- main form ---  -->
 				<section class="contact__form-main">
